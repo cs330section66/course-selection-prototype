@@ -7,23 +7,170 @@
 <link rel="stylesheet" href="css/w3.css">
 
 <body>
-    <div class="container">
-        <!-- class filters -->
-        <section class="filters">
-           <div>filters</div>
-        </section>
-        
-        <!-- schedule -->
-        <section class="schedule">
-           <div>schedule</div>
-        </section>
-     
-        <!-- shopping cart -->
-        <section class="shoppingCart">
-           <div>shopping cart</div>
-        </section>
-     
-     </div>
+   <div class="container">
+      <!-- class filters -->
+      <section class="filters">
+         <div class="filterPageUpperButtonContainer">
+            <button type="button" id="selectByClassButton" name="selected" class="selectedButton"
+               onclick="upperButtonsSelected('selectByClassButton')"> Select By Class </button>
+            <button type="button" id="selectByAcademicRequirementButton" name="notSelected" class="normalButton"
+               onclick="upperButtonsSelected('selectByAcademicRequirementButton')"> Select By Academic Requirement
+            </button>
+         </div>
+         <div id="searchByClassDiv" class="searchByClassDiv">
+            <div class="classNameSearchDiv">
+               Search By Keyword:
+               <input type="text" id="classNameSearchBar" class="classNameSearchBar">
+            </div>
+            <div class="classNameClassButton">
+               Select A Major:
+               <button type="button" id="classNameMajorDropdownButton" name="notSelected"
+                  class="classNameMajorDropdownButton" onclick="majorDropdownButtonClicked()">
+                  None
+               </button>
+            </div>
+            <div class="hidden" id="classNameClassButtonDropdown">
+               <button type="button" id="classNameMajorButtonCOMP_ENG" class="majorButtonNotSelected"
+                  onclick="majorButtonClicked('COMP_ENG')">
+                  COMP_ENG - Computer Engineering
+               </button>
+               <button type="button" id="classNameMajorButtonCOMP_SCI" class="majorButtonNotSelected"
+                  onclick="majorButtonClicked('COMP_SCI')">
+                  COMP_SCI - Computer Science
+               </button>
+               <button type="button" id="classNameMajorButtonCIV_ENG" class="majorButtonNotSelected"
+                  onclick="majorButtonClicked('CIV_ENG')">
+                  CIV_ENG - Civil & Environmental Engineering
+               </button>
+               <button type="button" id="classNameMajorButtonECON" class="majorButtonNotSelected"
+                  onclick="majorButtonClicked('ECON')">
+                  ECON - Economics
+               </button>
+               <button type="button" id="classNameMajorButtonMAT_SCI" class="majorButtonNotSelected"
+                  onclick="majorButtonClicked('MAT_SCI')">
+                  MAT_SCI - Material Science
+               </button>
+               <button type="button" id="classNameMajorButtonPSYCH" class="majorButtonNotSelected"
+                  onclick="majorButtonClicked('PSYCH')">
+                  PSYCH - Psychology
+               </button>
+               <button type="button" id="classNameMajorButtonSOCIOL" class="majorButtonNotSelected"
+                  onclick="majorButtonClicked('SOCIOL')">
+                  SOCIOL - Sociology
+               </button>
+            </div>
+            <div class="classNameCourseNumber">
+               Course Number
+               <button type="button" id="classNameCourseNumberButton" name="notSelected"
+                  class="classNameCourseNumberButton" onclick="courseNumberDropdownButtonClicked()">
+                  None
+               </button>
+               <input type="text" id="classNameCourseNumberBar" class="classNameCourseNumberBar">
+            </div>
+            <div class="hidden" id="classNameCourseNumberDropdown">
+               <button type="button" id="classNameCourseNumberDropdowncontains" class="CourseNumberButtonNotSelected"
+                  onclick="courseNumberButtonClicked('contains')">
+                  contains
+               </button>
+               <button type="button" id="classNameCourseNumberDropdowngreater" class="CourseNumberButtonNotSelected"
+                  onclick="courseNumberButtonClicked('greater')">
+                  greater than or equal to
+               </button>
+               <button type="button" id="classNameCourseNumberDropdownequal" class="CourseNumberButtonNotSelected"
+                  onclick="courseNumberButtonClicked('equal')">
+                  is exactly
+               </button>
+               <button type="button" id="classNameCourseNumberDropdownless" class="CourseNumberButtonNotSelected"
+                  onclick="courseNumberButtonClicked('less')">
+                  less than or equal to
+               </button>
+            </div>
+         </div>
+         <div id="searchByAcademicReq" class="hidden">
+            <div class="academicReqClassButton">
+               Select A Major:
+               <button type="button" id="academicReqMajorDropdownButton" name="notSelected"
+                  class="academicReqMajorDropdownButton" onclick="academicReqMajorDropdownClicked()">
+                  None
+               </button>
+            </div>
+            <div class="hidden" id="academicReqClassButtonDropdown">
+               <button type="button" id="academicReqMajorButtonCOMP_SCI" class="academicReqNotSelected"
+                  onclick="arMajorClicked('COMP_SCI')">
+                  COMP_SCI - Computer Science
+               </button>
+            </div>
+            <div class="academicReqClassButton">
+               Select An Academic Requirement:
+               <button type="button" id="academicReqDropdownButton" name="notSelected" class="academicReqDropdownButton"
+                  onclick="academicReqDropdownClicked()">
+                  None
+               </button>
+            </div>
+            <div class="hidden" id="academicReqButtonDropdown">
+               <button type="button" id="academicReqButtonBasicEngineering" class="academicReqNotSelected"
+                  onclick="arReqClicked('Basic Engineering')">
+                  Basic Engineering
+               </button>
+               <button type="button" id="academicReqButtonBasicScience" class="academicReqNotSelected"
+                  onclick="arReqClicked('Basic Science')">
+                  Basic Science
+               </button>
+               <button type="button" id="academicReqButtonBreadthCourses" class="academicReqNotSelected"
+                  onclick="arReqClicked('Breadth Courses')">
+                  Breadth Courses
+               </button>
+               <button type="button" id="academicReqButtonCoreCourses" class="academicReqNotSelected"
+                  onclick="arReqClicked('Core Courses')">
+                  Core Courses
+               </button>
+               <button type="button" id="academicReqButtonDepthCourses" class="academicReqNotSelected"
+                  onclick="arReqClicked('Depth Courses')">
+                  Depth Courses
+               </button>
+               <button type="button" id="academicReqButtonDesignandCommunication" class="academicReqNotSelected"
+                  onclick="arReqClicked('Design and Communication')">
+                  Design and Communication
+               </button>
+               <button type="button" id="academicReqButtonEngineeringAnalysis" class="academicReqNotSelected"
+                  onclick="arReqClicked('Engineering Analysis')">
+                  Engineering Analysis
+               </button>
+               <button type="button" id="academicReqButtonThemeHumanities" class="academicReqNotSelected"
+                  onclick="arReqClicked('Theme Humanities')">
+                  Theme (Humanities)
+               </button>
+               <button type="button" id="academicReqButtonThemeSocialScience" class="academicReqNotSelected"
+                  onclick="arReqClicked('Theme Social Science')">
+                  Theme (Social Science)
+               </button>
+
+               <button type="button" id="academicReqButtonUnrestrictedElective" class="academicReqNotSelected"
+                  onclick="arReqClicked('Unrestricted Elective')">
+                  Unrestricted Elective
+               </button>
+            </div>
+         </div>
+         <div id="submitButtonDiv" class="submitButtonDiv">
+            <button type="button"
+               class="submitButton" onclick="submitButtonClicked()">
+               Search
+            </button>
+         </div>
+         <script type="text/javascript" src="js/filterPage.js"> </script>
+      </section>
+
+      <!-- schedule -->
+      <section class="schedule">
+         <div>schedule</div>
+      </section>
+
+      <!-- shopping cart -->
+      <section class="shoppingCart">
+         <div>shopping cart</div>
+      </section>
+
+   </div>
 
 </body>
 
