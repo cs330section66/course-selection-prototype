@@ -1,4 +1,4 @@
-﻿.container {
+.container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -34,7 +34,6 @@
     grid-area: c;
     background-color: lightblue;
  }
-
  .selectedButton {
    background-color: lightblue;
    width: 16vh;
@@ -92,5 +91,3 @@
         margin: 5px;
     }
  }
- 
- 
