@@ -21,8 +21,8 @@
  }
  .filters {
     grid-area: a;
-    background-color: hotpink;
-    color: white;
+    display: flex;
+    flex-direction: column;
  }
  
  .schedule {
@@ -33,6 +33,41 @@
  .shoppingCart {
     grid-area: c;
     background-color: lightblue;
+ }
+ .selectedButton {
+   background-color: lightblue;
+   width: 16vh;
+   height: 8vh;
+   margin: 10px;
+ }
+
+ .normalButton {
+   background-color: white;
+   width: 16vh;
+   height: 8vh;
+   margin: 10px;
+ }
+
+ .filterPageUpperButtonContainer {
+    display: flex;
+    flex-direction: row;
+ }
+
+ .hidden {
+    display: none;
+ }
+
+ .classNameClassButtonDropdown, .classNameCourseNumberDropdown, .academicReqMajorButtonDropdown, .academicReqButtonDropdown{
+   display: flex;
+   flex-direction: column;
+ }
+
+ .majorButtonSelected, .CourseNumberButtonSelected, .academicReqSelected{
+   background-color: lightblue;
+ }
+
+ .submitButton {
+   background-color: red;
  }
  
  @media (max-width: 1024px) {
@@ -56,5 +91,3 @@
         margin: 5px;
     }
  }
- 
- 
