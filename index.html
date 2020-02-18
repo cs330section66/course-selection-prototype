@@ -8,10 +8,14 @@
 
 <body>
     <div class="container">
-        <!-- class filters -->
-        <section class="filters">
-           <div>filters</div>
-        </section>
+         <!-- class filters -->
+         <section class="filters">
+            <script type="text/javascript" src="js/filterPage.js"> </script>
+            <div class="filterPageUpperButtonContainer">
+               <button type="button" id = "selectByClassButton" name = "selected" class = "selectedButton" onclick="setClass('selectByClassButton')" >  Select By Class </button>
+               <button type="button" id = "selectByAcademicRequirementButton" name = "notSelected" class = "normalButton" onclick="setClass('selectByAcademicRequirementButton')"> Select By Academic Requirement </button>
+            </div>
+         </section>
         
         <!-- schedule -->
         <section class="schedule">

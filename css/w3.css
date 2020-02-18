@@ -21,8 +21,6 @@
  }
  .filters {
     grid-area: a;
-    background-color: hotpink;
-    color: white;
  }
  
  .schedule {
@@ -33,6 +31,25 @@
  .shoppingCart {
     grid-area: c;
     background-color: lightblue;
+ }
+
+ .selectedButton {
+   background-color: lightblue;
+   width: 16vh;
+   height: 8vh;
+   margin: 10px;
+ }
+
+ .normalButton {
+   background-color: white;
+   width: 16vh;
+   height: 8vh;
+   margin: 10px;
+ }
+
+ .filterPageUpperButtonContainer {
+    display: flex;
+    flex-direction: row;
  }
  
  @media (max-width: 1024px) {
