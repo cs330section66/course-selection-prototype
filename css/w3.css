@@ -92,6 +92,11 @@ section {
     max-width: 17%;
 }
 
+.courseListings {
+    overflow-y: auto;
+    max-height: 100vh
+}
+
 @media (max-width: 1024px) {
     /* tablet layout here */
     .container {
