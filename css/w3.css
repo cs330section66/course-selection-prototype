@@ -4,6 +4,7 @@
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "a a b b" "a a b b" "a a b b" "a a b b" "a a c c";
     min-height: 100vh;
+    max-height: 100vh;
     padding: 20px;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
@@ -19,16 +20,31 @@ section {
     grid-area: a;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    height: 100%
+}
+
+#courseListingsPage {
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.courseListings {
+    overflow-y: scroll;
+    max-height: 90%;
 }
 
 .schedule {
     grid-area: b;
-    background-color: yellow;
+    background-color: lightblue;
 }
 
 .shoppingCart {
     grid-area: c;
-    background-color: lightblue;
+    background-color: rgb(100,190,255);
 }
 
 .notSelected {
@@ -63,7 +79,7 @@ section {
 }
 
 #pageTitle {
-    height: 20%;
+    height: 30%;
 }
 
 .filtersDiv {
@@ -72,7 +88,7 @@ section {
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 
 .innerFilters {
@@ -89,12 +105,14 @@ section {
 }
 
 #submitButton {
-    max-width: 17%;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
 }
 
-.courseListings {
-    overflow-y: auto;
-    max-height: 100vh
+#backButton {
+    height: 10%;
+    width: 100%;
 }
 
 @media (max-width: 1024px) {

@@ -134,27 +134,33 @@ function filterCourses(listof_courses) {
 
 
    return (filteredClassList)
-
-
 }
 
+function backButtonClicked() {
+   var removedList = document.getElementById("courseListingsPage");
+   removedList.parentNode.removeChild(removedList);
+   document.getElementsByClassName("filters")[0].style.display = "flex";
+};
 
-
-
-
-
-
-
+///* Loads input list of classes *///
 function loadSearchList(listof_courses) {
-   let template = `<div class="courseListings"></div>`;
-   document.getElementsByClassName("filters")[0].innerHTML = template;
+   document.getElementsByClassName("filters")[0].style.display = "none";
+   let template = `<div id="courseListingsPage">
+                     <button id="backButton" onclick="backButtonClicked()">Back</button>
+                     <div class="courseListings"></div>
+                  </div>`;
+   document.getElementsByClassName("container")[0].innerHTML = template + document.getElementsByClassName("container")[0].innerHTML;
+   /*document.getElementsByClassName("filters")[0].innerHTML = template;*/
+   if (listof_courses.length == 0) {
+      document.getElementsByClassName("courseListings")[0].innerHTML += "No Results";
+   };
    for (course of listof_courses) {
       let template = `
          <a class="list-group-item">
             <div class="coursesItem">
                <h2>${course.name}</h2>
-               <h3>pre-req:${course.prereq}</h3>
-               <p>Description:${course.description}</p>
+               <h3>pre-req: ${course.prereq}</h3>
+               <p>Description: ${course.description}</p>
             </div>
          </a>`;
 
