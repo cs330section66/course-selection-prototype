@@ -2,82 +2,126 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-       "a a b b"
-       "a a b b"
-       "a a b b"
-       "a a b b"
-       "a a c c"; 
+    grid-template-areas: "a a b b" "a a b b" "a a b b" "a a b b" "a a c c";
     min-height: 100vh;
+    max-height: 100vh;
     padding: 20px;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
- }
- 
- section {
+}
+
+section {
     align-items: center;
     display: flex;
     justify-content: center;
- }
- .filters {
+}
+
+.filters {
     grid-area: a;
     display: flex;
     flex-direction: column;
- }
- 
- .schedule {
+    justify-content: flex-start;
+    height: 100%
+}
+
+#courseListingsPage {
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.courseListings {
+    overflow-y: scroll;
+    max-height: 90%;
+}
+
+.schedule {
     grid-area: b;
-    background-color: yellow;
- }
- 
- .shoppingCart {
-    grid-area: c;
     background-color: lightblue;
- }
+}
 
- .selectedButton {
-   background-color: lightblue;
-   width: 16vh;
-   height: 8vh;
-   margin: 10px;
- }
+.shoppingCart {
+    grid-area: c;
+    background-color: rgb(100,190,255);
+}
 
- .normalButton {
-   background-color: white;
-   width: 16vh;
-   height: 8vh;
-   margin: 10px;
- }
+.notSelected {
+    background-color: white;
+    color: #1579f6;
+    margin: 5%;
+}
 
- .filterPageUpperButtonContainer {
+.upperDiv {
     display: flex;
     flex-direction: row;
- }
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 10%;
+    padding: 5%;
+}
 
- .hidden {
-    display: none;
- }
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 90%;
+    padding: 5%;
+}
 
- .classNameClassButtonDropdown, .classNameCourseNumberDropdown, .academicReqMajorButtonDropdown, .academicReqButtonDropdown{
-   display: flex;
-   flex-direction: column;
- }
+.majorDropdown {
+    background-color: white;
+    color: black
+}
 
- .majorButtonSelected, .CourseNumberButtonSelected, .academicReqSelected{
-   background-color: lightblue;
- }
+#pageTitle {
+    height: 30%;
+}
 
- .submitButton {
-   background-color: red;
- }
- 
- @media (max-width: 1024px) {
+.filtersDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.innerFilters {
+    margin: 2%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.innerFilterElement {
+    margin-left: 2%;
+    border: solid 2px black
+}
+
+#submitButton {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+#backButton {
+    height: 10%;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
     /* tablet layout here */
     .container {
-       display: flex;
-       flex-direction: column;
-       overflow: scroll;
-       padding: 20px;
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+        padding: 20px;
     }
     .filters {
         height: 100vh;
@@ -91,6 +135,4 @@
         height: 20vh;
         margin: 5px;
     }
- }
- 
- 
+}
