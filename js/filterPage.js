@@ -31,22 +31,22 @@ function academicReqSelected(req) {
 
 
 let listof_courses = [
-   { name: "Comp_Sci 214", prereq: "Comp_Sci211", description: "data structure is good", academicreq: ["Core Courses"] },
-   { name: "Comp_Sci 213", prereq: "Comp_Sci211", description: "systems is kinda hard", academicreq: ["Core Courses"] },
-   { name: "Sociol 110", prereq: "None", description: "Sociology is a field of stufy that examines how people and groups interact.", academicreq: ["Theme Social Science"] },
-   { name: "Comp_Sci 348", prereq: "Comp_Sci 111, Comp_Sci 214", description: "Core Techniques and applications of artificial intelligence.", academicreq: ["Breadth Courses", "Depth Courses"] },
-   { name: "IEMS 201", prereq: "Math 234", description: "Collecting, summarizing, and displaying data. Drawing conclusions and making decisions", academicreq: ["Basic Engineering"] },
-   { name: "ECON 202-0", prereq: "None", description: "Economics is the study of ...", academicreq: ["Theme Social Science"] },
-   { name: "Comp_Sci 212", prereq: "Comp_Sci 111", description: "Fundamental concepts and tools in discrete math.", academicreq: ["Core Courses"] },
-   { name: "ECON 210-0", prereq: "None", description: "An intro to economics with an emphasis of macroeconomics.", academicreq: ["Theme Social Science"] },
-   { name: "Civ_Env 216", prereq: "Gen_Eng 205-2", description: "Analytical and experimental study of stresses and deformations and their application.", academicreq: ["Basic Engineering"] },
-   { name: "Comp_Sci 371", prereq: "Comp_Sci 348", description: "Principles and practices of knowledge representation, including logics and ontologies.", academicreq: ["Breadth Courses", "Depth Courses"] },
-   { name: "Mat_Sci 201", prereq: "Chem 131", description: "Introduces the core topis and basic concepts of Material Science", academicreq: ["Basic Engineering"] },
-   { name: "Psych 201-0", prereq: "Psych 110", description: "The analysis of data, using computer software and a conceptual approach.", academicreq: ["Theme Social Science"] },
-   { name: "Comp_Eng 205", prereq: "None", description: "Basics of assembly language programming. Macros, Systems, Stack, and procedure calls.", academicreq: ["Basic Engineering"] },
-   { name: "PSYCH 110-0", prereq: "None", description: "The purpose of this course is to present an overview of the field of psychology", academicreq: ["Theme Social Science"] },
-   { name: "Comp_Sci 349", prereq: "Comp_Sci 214", description: "The study of algorithms that improve automatically.", academicreq: ["Breadth Courses", "Depth Courses"] },
-   { name: "PSYCH 215-0", prereq: "PSYCH 110", description: "Covers predominant theories in personalities psychology", academicreq: ["Theme Social Science"] }
+   { name: "Comp_Sci 214", prereq: "Comp_Sci211", status: "open", description: "data structure is good", academicreq: ["Core Courses"] },
+   { name: "Comp_Sci 213", prereq: "Comp_Sci211", status: "open", description: "systems is kinda hard", academicreq: ["Core Courses"] },
+   { name: "Sociol 110", prereq: "None", status: "open", description: "Sociology is a field of stufy that examines how people and groups interact.", academicreq: ["Theme Social Science"] },
+   { name: "Comp_Sci 348", prereq: "Comp_Sci 111, Comp_Sci 214", status: "open", description: "Core Techniques and applications of artificial intelligence.", academicreq: ["Breadth Courses", "Depth Courses"] },
+   { name: "IEMS 201", prereq: "Math 234", status: "open", description: "Collecting, summarizing, and displaying data. Drawing conclusions and making decisions", academicreq: ["Basic Engineering"] },
+   { name: "ECON 202-0", prereq: "None", status: "open", description: "Economics is the study of ...", academicreq: ["Theme Social Science"] },
+   { name: "Comp_Sci 212", prereq: "Comp_Sci 111", status: "open", description: "Fundamental concepts and tools in discrete math.", academicreq: ["Core Courses"] },
+   { name: "ECON 210-0", prereq: "None", status: "open", description: "An intro to economics with an emphasis of macroeconomics.", academicreq: ["Theme Social Science"] },
+   { name: "Civ_Env 216", prereq: "Gen_Eng 205-2", status: "open", description: "Analytical and experimental study of stresses and deformations and their application.", academicreq: ["Basic Engineering"] },
+   { name: "Comp_Sci 371", prereq: "Comp_Sci 348", status: "open", description: "Principles and practices of knowledge representation, including logics and ontologies.", academicreq: ["Breadth Courses", "Depth Courses"] },
+   { name: "Mat_Sci 201", prereq: "Chem 131", status: "open", description: "Introduces the core topis and basic concepts of Material Science", academicreq: ["Basic Engineering"] },
+   { name: "Psych 201-0", prereq: "Psych 110", status: "open", description: "The analysis of data, using computer software and a conceptual approach.", academicreq: ["Theme Social Science"] },
+   { name: "Comp_Eng 205", prereq: "None", status: "open", description: "Basics of assembly language programming. Macros, Systems, Stack, and procedure calls.", academicreq: ["Basic Engineering"] },
+   { name: "PSYCH 110-0", prereq: "None", status: "open", description: "The purpose of this course is to present an overview of the field of psychology", academicreq: ["Theme Social Science"] },
+   { name: "Comp_Sci 349", prereq: "Comp_Sci 214", status: "open", description: "The study of algorithms that improve automatically.", academicreq: ["Breadth Courses", "Depth Courses"] },
+   { name: "PSYCH 215-0", prereq: "PSYCH 110", status: "open", description: "Covers predominant theories in personalities psychology", academicreq: ["Theme Social Science"] }
 
 ];
 
@@ -146,20 +146,24 @@ function backButtonClicked() {
 function loadSearchList(listof_courses) {
    document.getElementsByClassName("filters")[0].style.display = "none";
    let template = `<div id="courseListingsPage">
-                     <button id="backButton" onclick="backButtonClicked()">Back</button>
+                     <button id="backButton" 
+                     type="button" 
+                     class="btn btn-primary notSelected" 
+                     onclick="backButtonClicked()">Back</button>
                      <div class="courseListings"></div>
                   </div>`;
    document.getElementsByClassName("container")[0].innerHTML = template + document.getElementsByClassName("container")[0].innerHTML;
    /*document.getElementsByClassName("filters")[0].innerHTML = template;*/
    if (listof_courses.length == 0) {
-      document.getElementsByClassName("courseListings")[0].innerHTML += "No Results";
+      document.getElementsByClassName("courseListings")[0].innerHTML += `<h2 id="noresults">No Results</h2>`;
    };
    for (course of listof_courses) {
       let template = `
          <a class="list-group-item">
             <div class="coursesItem">
                <h2>${course.name}</h2>
-               <h3>pre-req: ${course.prereq}</h3>
+               <h5>status: ${course.status}</h5>
+               <h5>pre-req: ${course.prereq}</h5>
                <p>Description: ${course.description}</p>
             </div>
          </a>`;
