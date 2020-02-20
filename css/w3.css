@@ -104,6 +104,12 @@ section {
     border: solid 2px black
 }
 
+#noresults {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
 #submitButton {
     text-align: center;
     display: inline-block;
@@ -112,7 +118,7 @@ section {
 
 #backButton {
     height: 10%;
-    width: 100%;
+    width: 90%;
 }
 
 @media (max-width: 1024px) {
