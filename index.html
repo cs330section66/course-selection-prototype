@@ -24,7 +24,7 @@
                 <div class="filtersDiv">
                     <div class="input-group input-group-sm mb-3 innerFilters">
                         Search By Keyword:
-                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="searchInput">
                     </div>
                     <div class="dropdown innerFilters">
                         Select A Major:
@@ -52,7 +52,7 @@
                             <a class="dropdown-item" href="#" onclick="courseFilterSelected('is exactly')">is exactly</a>
                             <a class="dropdown-item" href="#" onclick="courseFilterSelected('less')">less than or equal to</a>
                         </div>
-                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="width:25%">
+                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="width:25%" id = "classNoInput">
                     </div>
                     <button type="button" class="btn btn-primary innerFilters" id="submitButton" onclick="submitButtonClicked()"> Submit </button>
                 </div>
