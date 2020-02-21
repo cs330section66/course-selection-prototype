@@ -4,7 +4,8 @@
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="css/w3.css">
 
 <body>
@@ -12,11 +13,13 @@
         <!-- class filters -->
         <section class="filters">
             <div class="upperDiv">
-                <button type="button" class="btn btn-primary" id="selectClass" onclick="pageButtonsPressed('selectClass')">
-                Select By Class
+                <button type="button" class="btn btn-primary" id="selectClass"
+                    onclick="pageButtonsPressed('selectClass')">
+                    Select By Class
                 </button>
-                <button type="button" class="btn btn-primary notSelected" id="selectMajor" onclick="pageButtonsPressed('selectMajor')">
-                Select By Major
+                <button type="button" class="btn btn-primary notSelected" id="selectMajor"
+                    onclick="pageButtonsPressed('selectMajor')">
+                    Select By Major
                 </button>
             </div>
             <div class="mainDiv" id="byClass">
@@ -24,37 +27,56 @@
                 <div class="filtersDiv">
                     <div class="input-group input-group-sm mb-3 innerFilters">
                         Search By Keyword:
-                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="searchInput">
+                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" id="searchInput">
                     </div>
                     <div class="dropdown innerFilters">
                         Select A Major:
-                        <button class="btn btn-secondary dropdown-toggle majorDropdown innerFilterElement" type="button" id="majorButtonClass" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       None
-                     </button>
+                        <button class="btn btn-secondary dropdown-toggle majorDropdown innerFilterElement" type="button"
+                            id="majorButtonClass" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            None
+                        </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onclick="majorSelected('COMP_ENG - Computer Engineering','majorButtonClass')">COMP_ENG - Computer Engineering</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('COMP_SCI - Computer Science','majorButtonClass')">COMP_SCI - Computer Science</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('CIV_ENG - Civil & Environmental Engineering','majorButtonClass')">CIV_ENG - Civil & Environmental Engineering</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('ECON - Economics','majorButtonClass')">ECON - Economics</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('MAT_SCI - Material Science','majorButtonClass')">MAT_SCI - Material Science</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('PSYCH - Psychology','majorButtonClass')">PSYCH - Psychology</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('SOCIOL - Sociology','majorButtonClass')">SOCIOL - Sociology</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('COMP_ENG - Computer Engineering','majorButtonClass')">COMP_ENG -
+                                Computer Engineering</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('COMP_SCI - Computer Science','majorButtonClass')">COMP_SCI -
+                                Computer Science</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('CIV_ENG - Civil & Environmental Engineering','majorButtonClass')">CIV_ENG
+                                - Civil & Environmental Engineering</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('ECON - Economics','majorButtonClass')">ECON - Economics</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('MAT_SCI - Material Science','majorButtonClass')">MAT_SCI -
+                                Material Science</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('PSYCH - Psychology','majorButtonClass')">PSYCH - Psychology</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('SOCIOL - Sociology','majorButtonClass')">SOCIOL - Sociology</a>
                         </div>
                     </div>
                     <div class="dropdown innerFilters">
                         Course Number
-                        <button class="btn btn-secondary dropdown-toggle majorDropdown innerFilterElement" type="button" id="courseFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        None
-                      </button>
+                        <button class="btn btn-secondary dropdown-toggle majorDropdown innerFilterElement" type="button"
+                            id="courseFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            None
+                        </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="courseFilterSelected('contains')">contains</a>
-                            <a class="dropdown-item" href="#" onclick="courseFilterSelected('greater')">greater than or equal to</a>
-                            <a class="dropdown-item" href="#" onclick="courseFilterSelected('is exactly')">is exactly</a>
-                            <a class="dropdown-item" href="#" onclick="courseFilterSelected('less')">less than or equal to</a>
+                            <a class="dropdown-item" href="#" onclick="courseFilterSelected('greater')">greater than or
+                                equal to</a>
+                            <a class="dropdown-item" href="#" onclick="courseFilterSelected('is exactly')">is
+                                exactly</a>
+                            <a class="dropdown-item" href="#" onclick="courseFilterSelected('less')">less than or equal
+                                to</a>
                         </div>
-                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="width:25%" id = "classNoInput">
+                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" style="width:25%" id="classNoInput">
                     </div>
-                    <button type="button" class="btn btn-primary innerFilters" id="submitButton" onclick="submitButtonClicked()"> Submit </button>
+                    <button type="button" class="btn btn-primary innerFilters" id="submitButton"
+                        onclick="submitButtonClicked()"> Submit </button>
                 </div>
             </div>
             <div class="mainDiv" id="byAcadReq" style="display:none">
@@ -62,58 +84,139 @@
                 <div class="filtersDiv">
                     <div class="dropdown innerFilters">
                         Select A Major:
-                        <button class="btn btn-secondary dropdown-toggle majorDropdown innerFilterElement" type="button" id="majorButtonReq" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         None
-                       </button>
+                        <button class="btn btn-secondary dropdown-toggle majorDropdown innerFilterElement" type="button"
+                            id="majorButtonReq" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            None
+                        </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onclick="majorSelected('COMP_ENG - Computer Engineering','majorButtonReq')">COMP_ENG - Computer Engineering</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('COMP_SCI - Computer Science','majorButtonReq')">COMP_SCI - Computer Science</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('CIV_ENG - Civil & Environmental Engineering','majorButtonReq')">CIV_ENG - Civil & Environmental Engineering</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('ECON - Economics','majorButtonReq')">ECON - Economics</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('MAT_SCI - Material Science','majorButtonReq')">MAT_SCI - Material Science</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('PSYCH - Psychology','majorButtonReq')">PSYCH - Psychology</a>
-                            <a class="dropdown-item" href="#" onclick="majorSelected('SOCIOL - Sociology','majorButtonReq')">SOCIOL - Sociology</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('COMP_ENG - Computer Engineering','majorButtonReq')">COMP_ENG -
+                                Computer Engineering</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('COMP_SCI - Computer Science','majorButtonReq')">COMP_SCI -
+                                Computer Science</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('CIV_ENG - Civil & Environmental Engineering','majorButtonReq')">CIV_ENG
+                                - Civil & Environmental Engineering</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('ECON - Economics','majorButtonReq')">ECON - Economics</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('MAT_SCI - Material Science','majorButtonReq')">MAT_SCI -
+                                Material Science</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('PSYCH - Psychology','majorButtonReq')">PSYCH - Psychology</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="majorSelected('SOCIOL - Sociology','majorButtonReq')">SOCIOL - Sociology</a>
                         </div>
                     </div>
                     <div class="dropdown innerFilters">
                         Select Academic Requirement
-                        <button class="btn btn-secondary dropdown-toggle majorDropdown innerFilterElement" type="button" id="reqButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          None
+                        <button class="btn btn-secondary dropdown-toggle majorDropdown innerFilterElement" type="button"
+                            id="reqButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            None
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Basic Engineering')">Basic Engineering</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Basic Science')">Basic Science</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Breadth Courses')">Breadth Courses</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Core Courses')">Core Courses</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Depth Courses')">Depth Courses</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Design and Communication')">Design and Communication</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Engineering Analysis')">Engineering Analysis</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Theme Humanities')">Theme Humanities</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Theme Social Science')">Theme Social Science</a>
-                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Unrestricted Elective')">Unrestricted Elective</a>
+                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Basic Engineering')">Basic
+                                Engineering</a>
+                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Basic Science')">Basic
+                                Science</a>
+                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Breadth Courses')">Breadth
+                                Courses</a>
+                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Core Courses')">Core
+                                Courses</a>
+                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Depth Courses')">Depth
+                                Courses</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="academicReqSelected('Design and Communication')">Design and Communication</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="academicReqSelected('Engineering Analysis')">Engineering Analysis</a>
+                            <a class="dropdown-item" href="#" onclick="academicReqSelected('Theme Humanities')">Theme
+                                Humanities</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="academicReqSelected('Theme Social Science')">Theme Social Science</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="academicReqSelected('Unrestricted Elective')">Unrestricted Elective</a>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary innerFilters" id="submitButton" onclick="submitButtonClicked()"> Submit </button>
+                    <button type="button" class="btn btn-primary innerFilters" id="submitButton"
+                        onclick="submitButtonClicked()"> Submit </button>
                 </div>
             </div>
         </section>
 
         <!-- schedule -->
         <section class="schedule">
-            <div>schedule</div>
+            <div class="scheduleRow" style="padding-left: 20px;">
+                <div class="scheduleDays">
+                    Monday
+                </div>
+                <div class="scheduleDays">
+                    Tuesday
+                </div>
+                <div class="scheduleDays">
+                    Wednesday
+                </div>
+                <div class="scheduleDays">
+                    Thursday
+                </div>
+                <div class="scheduleDays">
+                    Friday
+                </div>
+            </div>
+            <div class="scheduleWHours">
+                <div style="margin-top: -5px;">
+                    <div class="scheduleHours">
+                        9
+                    </div>
+                    <div class="scheduleHours">
+                        10
+                    </div>
+                    <div class="scheduleHours">
+                        11
+                    </div>
+                    <div class="scheduleHours">
+                        12
+                    </div>
+                    <div class="scheduleHours">
+                        13
+                    </div>
+                    <div class="scheduleHours">
+                        14
+                    </div>
+                    <div class="scheduleHours">
+                        15
+                    </div>
+                    <div class="scheduleHours">
+                        16
+                    </div>
+                    <div class="scheduleHours">
+                        17
+                    </div>
+                    <div class="scheduleHours">
+                        18
+                    </div>
+                </div>
+                <section id="schedule"></section>
+            </div>
         </section>
 
         <!-- shopping cart -->
         <section class="shoppingCart">
-            <div>shopping cart</div>
+            <section id="shoppingCart" style="padding-left: 20px;"></section>
         </section>
 
     </div>
 
     <script type="text/javascript" src="js/filterPage.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

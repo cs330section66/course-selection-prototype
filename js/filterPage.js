@@ -28,8 +28,6 @@ function academicReqSelected(req) {
    document.getElementById("reqButton").innerHTML = req
 }
 
-
-
 let listof_courses = [
    { name: "Comp_Sci 214", prereq: "Comp_Sci211", status: "open", description: "data structure is good", academicreq: ["Core Courses"] },
    { name: "Comp_Sci 213", prereq: "Comp_Sci211", status: "open", description: "systems is kinda hard", academicreq: ["Core Courses"] },
@@ -171,3 +169,45 @@ function loadSearchList(listof_courses) {
       document.getElementsByClassName("courseListings")[0].innerHTML += template;
    }
 }
+
+// function that sets up the schedule for user with distinct ids
+// id of 9am Monday will be "scheduleCell1-9", 10am Monday will be "scheduleCell1-10",
+// 9 am Tuesday will be "scheduleCell2-9"
+
+function prepareSchedule() {
+   var schedule = document.getElementById("schedule")
+   var tempInnerHTML = `<div style="border: solid 2px black;">`
+   for (var hour = 9; hour < 19; hour ++) {
+      var tempHTML = `<div class="scheduleRow">`
+      for (var day = 1; day < 6; day++) {
+         tempHTML += `<div class="card scheduleCell" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
+         </div>`
+      }
+      tempHTML += `</div>`
+      tempInnerHTML += tempHTML
+   }
+   tempInnerHTML += `</div>`
+   schedule.innerHTML = tempInnerHTML
+}
+
+// function that sets up the shopping cart for user with distinct ids
+// ids will be "shoppingCart1", "shoppingCart2", etc.
+
+function prepareShoppingCart() {
+   var shoppingCart = document.getElementById("shoppingCart")
+   var tempInnerHTML = `<div style="border: solid 2px black;">`
+   for (var row = 0; row < 2; row++) {
+      var tempHTML = `<div class="scheduleRow">`
+      for (var column = 1; column < 6; column++) {
+         tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + (row*2+column) + `"> 
+         </div>`
+      }
+      tempHTML += `</div>`
+      tempInnerHTML += tempHTML
+   }
+   tempInnerHTML += `</div>`
+   shoppingCart.innerHTML = tempInnerHTML
+}
+
+prepareSchedule()
+prepareShoppingCart()
