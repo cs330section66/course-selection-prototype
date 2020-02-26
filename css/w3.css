@@ -4,6 +4,7 @@
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "a a b b" "a a b b" "a a b b" "a a b b" "a a c c";
     min-height: 100vh;
+    max-height: 100vh;
     padding: 20px;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
@@ -19,16 +20,32 @@ section {
     grid-area: a;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    height: 100%
 }
+
+#courseListingsPage {
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.courseListings {
+    overflow-y: scroll;
+    max-height: 90%;
+}
+
 
 .schedule {
     grid-area: b;
-    background-color: yellow;
+    display:flex;
+    flex-direction: column;
 }
 
 .shoppingCart {
     grid-area: c;
-    background-color: lightblue;
 }
 
 .notSelected {
@@ -63,7 +80,7 @@ section {
 }
 
 #pageTitle {
-    height: 20%;
+    height: 30%;
 }
 
 .filtersDiv {
@@ -72,7 +89,7 @@ section {
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 
 .innerFilters {
@@ -88,14 +105,62 @@ section {
     border: solid 2px black
 }
 
-#submitButton {
-    max-width: 17%;
+#noresults {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }
 
-.courseListings {
-    overflow-y: auto;
-    max-height: 100vh
+#submitButton {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
 }
+
+#backButton {
+    height: 10%;
+    width: 90%;
+}
+
+#addButton {
+    height: 50%;
+    width: 50%;
+
+}
+
+.scheduleCell {
+    width: 14vh;
+    height: 7vh;
+    border: solid 2px black;
+    border-radius: 0;
+    
+}
+
+.scheduleRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.scheduleDays {
+    width: 14vh;
+    height: 3vh;
+    text-align: center;
+}
+
+.scheduleHours {
+    width: 3vh;
+    height: 7vh;
+    text-align: center;
+}
+
+.scheduleWHours {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
 
 @media (max-width: 1024px) {
     /* tablet layout here */
