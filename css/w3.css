@@ -37,6 +37,7 @@ section {
     max-height: 90%;
 }
 
+
 .schedule {
     grid-area: b;
     display:flex;
@@ -121,11 +122,18 @@ section {
     width: 90%;
 }
 
+#addButton {
+    height: 50%;
+    width: 50%;
+
+}
+
 .scheduleCell {
-    width: 12vh;
+    width: 14vh;
     height: 7vh;
     border: solid 2px black;
     border-radius: 0;
+    
 }
 
 .scheduleRow {
@@ -134,7 +142,7 @@ section {
 }
 
 .scheduleDays {
-    width: 12vh;
+    width: 14vh;
     height: 3vh;
     text-align: center;
 }
@@ -149,6 +157,10 @@ section {
     display: flex;
     flex-direction: row;
 }
+
+
+
+
 
 @media (max-width: 1024px) {
     /* tablet layout here */
