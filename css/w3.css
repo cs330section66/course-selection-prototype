@@ -44,9 +44,41 @@ section {
     flex-direction: column;
 }
 
+
+/* start of shopping cart */
 .shoppingCart {
     grid-area: c;
+    display: flex;
+    flex-direction: column;
 }
+
+#addDeleteCart {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#addCartAlign {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+#deleteCartAlign {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 50%;
+}
+
+.selectedCart {
+    background-color: #1579f6!important;
+}
+.notSelectedCart {
+    background-color: white!important;
+}
+
+/* end of add shopping card */
 
 .notSelected {
     background-color: white;
