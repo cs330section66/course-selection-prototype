@@ -61,6 +61,7 @@ section {
 #addCartAlign {
     display: flex;
     justify-content: flex-start;
+    padding-left: 4%;
     width: 50%;
 }
 
@@ -72,12 +73,20 @@ section {
 }
 
 .selectedCart {
-    background-color: #1579f6!important;
+    color: white;
+    background: #253180;
 }
 .notSelectedCart {
-    background-color: white!important;
+    color: #253180;
+    background: white;
 }
 
+#addCartButton {
+    background: #303685;
+}
+#deleteCartButton {
+    background: orange;
+}
 /* end of add shopping card */
 
 .notSelected {
@@ -134,7 +143,7 @@ section {
 
 .innerFilterElement {
     margin-left: 2%;
-    border: solid 2px black
+    border: solid .5px black
 }
 
 #noresults {
@@ -163,7 +172,7 @@ section {
 .scheduleCell {
     width: 14vh;
     height: 7vh;
-    border: solid 2px black;
+    border: solid .5px black;
     border-radius: 0;
     
 }

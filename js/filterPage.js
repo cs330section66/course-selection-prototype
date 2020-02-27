@@ -159,14 +159,15 @@ function addtoShoppingCart(selected) {
          break
       }
       for (var column = 1; column < 6; column++) {
+         let cart_div_id = "shoppingCart" + (row*2+column);
+         let cart_button_class = "placeholder" + row + "-" + column
          if (document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display !== "none") {
             continue
          }
          else {
             document.getElementsByClassName("placeholder" + row + "-" + column)[0].innerHTML = `<div>` + selected + `</div>`
             document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display = "flex"
-            let cart_div_id = "shoppingCart" + (row*2+column);
-            document.getElementById("shoppingCart" + (row*2+column)).onclick = function () { CartClicked(cart_div_id); };
+            document.getElementById(cart_div_id).onclick = function () { CartClicked(cart_div_id, cart_button_class); };
             listof_cart.push(selected);
             done = true
             break
@@ -237,9 +238,9 @@ function prepareShoppingCart() {
    for (var row = 0; row < 2; row++) {
       var tempHTML = `<div class="scheduleRow">`
       for (var column = 1; column < 6; column++) {
-         tempHTML += `<div class="card scheduleCell notSelectedCart" name="shoppingCart" id="shoppingCart` + (row*2+column) + `"> 
-         <div class="placeholder` + row + `-` + column + `" style="display: none"> </div>
-         </div>`
+         tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + (row*2+column) + `"> 
+         <button class="btn btn-primary notSelectedCart  placeholder` + row + `-` + column + `" style="display: none" onclick="this.blur();"> </div>
+         </button>`
       }
       tempHTML += `</div>`
       tempInnerHTML += tempHTML
@@ -250,17 +251,18 @@ function prepareShoppingCart() {
 
 // Renders the course color bt selected and unselected
 
-function CartClicked(cart_div_id) {
+function CartClicked(cart_div_id, cart_button_class) {
    console.log(cart_div_id)
    let cart_course_div = document.getElementById(cart_div_id);
-   console.log(cart_course_div.classList.contains('notSelectedCart'))
-   if (cart_course_div.classList.contains('selectedCart')) {
-      cart_course_div.classList.remove('selectedCart');
-      cart_course_div.classList.add('notSelectedCart');
+   let cart_course_button = document.getElementsByClassName(cart_button_class)[0]
+   console.log(cart_course_button.classList.contains('SelectedCart'))
+   if (cart_course_button.classList.contains('selectedCart')) {
+      cart_course_button.classList.remove('selectedCart');
+      cart_course_button.classList.add('notSelectedCart');
    }
-   else if (cart_course_div.classList.contains('notSelectedCart')) {
-      cart_course_div.classList.remove('notSelectedCart');
-      cart_course_div.classList.add('selectedCart');
+   else if (cart_course_button.classList.contains('notSelectedCart')) {
+      cart_course_button.classList.remove('notSelectedCart');
+      cart_course_button.classList.add('selectedCart');
    }
 }
 
