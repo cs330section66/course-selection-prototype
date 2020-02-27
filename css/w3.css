@@ -37,14 +37,15 @@ section {
     max-height: 90%;
 }
 
+
 .schedule {
     grid-area: b;
-    background-color: lightblue;
+    display:flex;
+    flex-direction: column;
 }
 
 .shoppingCart {
     grid-area: c;
-    background-color: rgb(100,190,255);
 }
 
 .notSelected {
@@ -120,6 +121,46 @@ section {
     height: 10%;
     width: 90%;
 }
+
+#addButton {
+    height: 50%;
+    width: 50%;
+
+}
+
+.scheduleCell {
+    width: 14vh;
+    height: 7vh;
+    border: solid 2px black;
+    border-radius: 0;
+    
+}
+
+.scheduleRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.scheduleDays {
+    width: 14vh;
+    height: 3vh;
+    text-align: center;
+}
+
+.scheduleHours {
+    width: 3vh;
+    height: 7vh;
+    text-align: center;
+}
+
+.scheduleWHours {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
 
 @media (max-width: 1024px) {
     /* tablet layout here */

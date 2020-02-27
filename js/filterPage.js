@@ -28,8 +28,6 @@ function academicReqSelected(req) {
    document.getElementById("reqButton").innerHTML = req
 }
 
-
-
 let listof_courses = [
    { name: "Comp_Sci 214", prereq: "Comp_Sci211", status: "open", description: "data structure is good", academicreq: ["Core Courses"] },
    { name: "Comp_Sci 213", prereq: "Comp_Sci211", status: "open", description: "systems is kinda hard", academicreq: ["Core Courses"] },
@@ -64,7 +62,7 @@ function filterCourses(listof_courses) {
       var choosenMajor = document.getElementById("majorButtonClass").innerHTML
       var courseNoEquality = document.getElementById("courseFilter").innerHTML
       var courseNocontraint = document.getElementById("classNoInput").value
-
+      
 
       for (var i = 0; i < listof_courses.length; i++) {
          var className = listof_courses[i].name
@@ -142,6 +140,35 @@ function backButtonClicked() {
    document.getElementsByClassName("filters")[0].style.display = "flex";
 };
 
+function addButtonClicked (name) {
+   console.log("HELLO",name)
+   if (listof_courses.length !== 0) {
+      var courseChosen = document.getElementById("ListCourseName").innerHTML
+      addtoShoppingCart(name)
+   }
+}
+
+function addtoShoppingCart(selected) {
+   console.log(selected)
+   var done = false
+   for (var row = 0; row < 2; row++) {
+      if (done) {
+         break
+      }
+      for (var column = 1; column < 6; column++) {
+         if (document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display !== "none") {
+            continue
+         }
+         else {
+            document.getElementsByClassName("placeholder" + row + "-" + column)[0].innerHTML = `<div>` + selected + `</div>`
+            document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display = "flex"
+            done = true
+            break
+         }
+      }
+   }
+}
+
 ///* Loads input list of classes *///
 function loadSearchList(listof_courses) {
    document.getElementsByClassName("filters")[0].style.display = "none";
@@ -161,13 +188,59 @@ function loadSearchList(listof_courses) {
       let template = `
          <a class="list-group-item">
             <div class="coursesItem">
-               <h2>${course.name}</h2>
+               <h2 id = "ListCourseName" >${course.name} </h2>
                <h5>status: ${course.status}</h5>
                <h5>pre-req: ${course.prereq}</h5>
                <p>Description: ${course.description}</p>
+               <button type="button" class="btn btn-primary coursesItem" id="addButton"
+                        onclick="addButtonClicked('`+ course.name + `')"> Add to Shopping Cart 
+               </button>
             </div>
          </a>`;
 
       document.getElementsByClassName("courseListings")[0].innerHTML += template;
    }
 }
+
+// function that sets up the schedule for user with distinct ids
+// id of 9am Monday will be "scheduleCell1-9", 10am Monday will be "scheduleCell1-10",
+// 9 am Tuesday will be "scheduleCell2-9"
+
+function prepareSchedule() {
+   var schedule = document.getElementById("schedule")
+   var tempInnerHTML = `<div style="border: solid 2px black;">`
+   for (var hour = 9; hour < 19; hour ++) {
+      var tempHTML = `<div class="scheduleRow">`
+      for (var day = 1; day < 6; day++) {
+         tempHTML += `<div class="card scheduleCell" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
+         </div>`
+      }
+      tempHTML += `</div>`
+      tempInnerHTML += tempHTML
+   }
+   tempInnerHTML += `</div>`
+   schedule.innerHTML = tempInnerHTML
+}
+
+// function that sets up the shopping cart for user with distinct ids
+// ids will be "shoppingCart1", "shoppingCart2", etc.
+
+function prepareShoppingCart() {
+   var shoppingCart = document.getElementById("shoppingCart")
+   var tempInnerHTML = `<div style="border: solid 2px black;">`
+   for (var row = 0; row < 2; row++) {
+      var tempHTML = `<div class="scheduleRow">`
+      for (var column = 1; column < 6; column++) {
+         tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + (row*2+column) + `"> 
+         <div class="placeholder` + row + `-` + column + `" style="display: none"> </div>
+         </div>`
+      }
+      tempHTML += `</div>`
+      tempInnerHTML += tempHTML
+   }
+   tempInnerHTML += `</div>`
+   shoppingCart.innerHTML = tempInnerHTML
+}
+
+prepareSchedule()
+prepareShoppingCart()
