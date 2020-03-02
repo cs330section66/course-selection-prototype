@@ -61,7 +61,7 @@ section {
 #addCartAlign {
     display: flex;
     justify-content: flex-start;
-    padding-left: 4%;
+    padding-left: 8%;
     width: 50%;
 }
 
@@ -69,16 +69,8 @@ section {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    padding-right: 3%;
     width: 50%;
-}
-
-.selectedCart {
-    color: white;
-    background: #253180;
-}
-.notSelectedCart {
-    color: #253180;
-    background: white;
 }
 
 #addCartButton {
@@ -88,6 +80,11 @@ section {
     background: orange;
 }
 /* end of add shopping card */
+
+/* start of schedule */
+.classSession {
+    overflow-y: visible;
+}
 
 .notSelected {
     background-color: white;
