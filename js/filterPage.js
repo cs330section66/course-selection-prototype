@@ -219,7 +219,7 @@ function prepareSchedule() {
    for (var hour = 9; hour < 19; hour ++) {
       var tempHTML = `<div class="scheduleRow">`
       for (var day = 1; day < 6; day++) {
-         tempHTML += `<div class="card scheduleCell" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
+         tempHTML += `<div class="scheduleCell" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
          </div>`
       }
       tempHTML += `</div>`
@@ -265,7 +265,7 @@ function getClassTimes(class_name) {
 // Renders of class information on popup modal
 function CartClicked(class_name) {
    // add schedule with the getClassTime outputted time
-   document.getElementById("cartAddButton").onclick = addSchedule(class_name);
+   document.getElementById("cartAddButton").onclick = function() {addSchedule(class_name);};
    document.getElementById("cartRemoveButton").onclick = removeCart();
 }
 
@@ -279,13 +279,21 @@ function addCartButtonClicked() {
       // let class_name = document.getElementsByClassName("")[0].innerHTML;
 }
 
+
+// response to addSchedule button click
+// adds button to schedule div
+// use overflow and padding to create .5 hour blocks
 function addSchedule(class_name) {
    let listof_class_times = getClassTimes(class_name);
    console.log(listof_class_times)
    for (session of listof_class_times) {
       // if blocks conflict, style="width1/2"
       var session_start = session.start;
-      if (Number.isInteger(session_start) == false) {session_start -= 0.5;}
+      var start_offset = 0
+      if (Number.isInteger(session_start) == false) {
+         session_start -= 0.5;
+         start_offset = 3;
+      }
       var scheduleCell_div = document.getElementById("scheduleCell" + session.day + "-" + session_start);
       console.log("scheduleCell" + session.day + "-" + session.start);
       var session_length = session.end - session.start;
@@ -293,6 +301,7 @@ function addSchedule(class_name) {
       var template = `
          <button type="button" class="btn btn-primary classSession" style="height:${block_size}%;">${class_name}</button>
       `;
+      scheduleCell_div.style = `padding-top: ${start_offset}vh;`;
       scheduleCell_div.innerHTML = template;
 
    }

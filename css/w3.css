@@ -83,7 +83,10 @@ section {
 
 /* start of schedule */
 .classSession {
-    overflow-y: visible;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .notSelected {
@@ -171,7 +174,9 @@ section {
     height: 7vh;
     border: solid .5px black;
     border-radius: 0;
-    
+
+    display: flex;
+    overflow-y: visible;
 }
 
 .scheduleRow {
@@ -190,7 +195,6 @@ section {
     height: 7vh;
     text-align: center;
 }
-
 .scheduleWHours {
     display: flex;
     flex-direction: row;
