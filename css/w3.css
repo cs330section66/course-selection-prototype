@@ -61,7 +61,7 @@ section {
 #addCartAlign {
     display: flex;
     justify-content: flex-start;
-    padding-left: 4%;
+    padding-left: 8%;
     width: 50%;
 }
 
@@ -69,16 +69,8 @@ section {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    padding-right: 3%;
     width: 50%;
-}
-
-.selectedCart {
-    color: white;
-    background: #253180;
-}
-.notSelectedCart {
-    color: #253180;
-    background: white;
 }
 
 #addCartButton {
@@ -88,6 +80,14 @@ section {
     background: orange;
 }
 /* end of add shopping card */
+
+/* start of schedule */
+.classSession {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .notSelected {
     background-color: white;
@@ -174,7 +174,9 @@ section {
     height: 7vh;
     border: solid .5px black;
     border-radius: 0;
-    
+
+    display: flex;
+    overflow-y: visible;
 }
 
 .scheduleRow {
@@ -193,7 +195,6 @@ section {
     height: 7vh;
     text-align: center;
 }
-
 .scheduleWHours {
     display: flex;
     flex-direction: row;
