@@ -37,20 +37,62 @@ section {
     max-height: 90%;
 }
 
+
 .schedule {
     grid-area: b;
     display:flex;
     flex-direction: column;
 }
 
+
+/* start of shopping cart */
 .shoppingCart {
     grid-area: c;
+    display: flex;
+    flex-direction: column;
+}
+
+#addDeleteCart {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#addCartAlign {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 8%;
+    width: 50%;
+}
+
+#deleteCartAlign {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 3%;
+    width: 50%;
+}
+
+#addCartButton {
+    background: #303685;
+}
+#deleteCartButton {
+    background: orange;
+}
+/* end of add shopping card */
+
+/* start of schedule */
+.classSession {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .notSelected {
     background-color: white;
     color: #1579f6;
-    margin: 5%;
+    margin-right: 5%
 }
 
 .upperDiv {
@@ -101,7 +143,7 @@ section {
 
 .innerFilterElement {
     margin-left: 2%;
-    border: solid 2px black
+    border: solid .5px black
 }
 
 #noresults {
@@ -121,11 +163,39 @@ section {
     width: 90%;
 }
 
+#addButton {
+    height: 50%;
+    width: 50%;
+
+}
+
 .scheduleCell {
-    width: 12vh;
+    width: 14vh;
     height: 7vh;
-    border: solid 2px black;
+    border: solid .5px black;
     border-radius: 0;
+    display: flex;
+    overflow: visible;
+}
+
+.scheduleCellWhole {
+    width: 14vh;
+    height: 3.5vh;
+    border: solid .5px black;
+    border-radius: 0;
+    border-bottom: none;
+    display: flex;
+    overflow: visible;
+}
+
+.scheduleCellHalf {
+    width: 14vh;
+    height: 3.5vh;
+    border: solid .5px black;
+    border-radius: 0;
+    border-top: none;
+    display: flex;
+    overflow: visible;
 }
 
 .scheduleRow {
@@ -134,7 +204,7 @@ section {
 }
 
 .scheduleDays {
-    width: 12vh;
+    width: 14vh;
     height: 3vh;
     text-align: center;
 }
@@ -144,11 +214,14 @@ section {
     height: 7vh;
     text-align: center;
 }
-
 .scheduleWHours {
     display: flex;
     flex-direction: row;
 }
+
+
+
+
 
 @media (max-width: 1024px) {
     /* tablet layout here */
