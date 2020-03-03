@@ -1,5 +1,6 @@
 //shows selectedButton page when the button is pressed, disables other page page and edits the layout
 function pageButtonsPressed(selectedButton) {
+   document.getElementById("welcome").style.display = "none"
    var selectedDiv = document.getElementById(selectedButton);
    var unselectedDiv = document.getElementById(selectedButton === "selectClass" ? "selectMajor" : "selectClass")
    //"#1579f6" is dark blue
@@ -129,8 +130,6 @@ function filterCourses(listof_courses) {
       }
 
    }
-
-
    return (filteredClassList)
 }
 
@@ -138,10 +137,10 @@ function backButtonClicked() {
    var removedList = document.getElementById("courseListingsPage");
    removedList.parentNode.removeChild(removedList);
    document.getElementsByClassName("filters")[0].style.display = "flex";
+   document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev) 
 };
 
 function addButtonClicked (name) {
-   console.log("HELLO",name)
    if (listof_courses.length !== 0) {
       var courseChosen = document.getElementById("ListCourseName").innerHTML
       addtoShoppingCart(name)
@@ -152,7 +151,6 @@ function addButtonClicked (name) {
 listof_cart = [];
 
 function addtoShoppingCart(selected) {
-   console.log(selected)
    var done = false
    for (var row = 0; row < 2; row++) {
       if (done) {
@@ -219,7 +217,15 @@ function prepareSchedule() {
    for (var hour = 9; hour < 19; hour ++) {
       var tempHTML = `<div class="scheduleRow">`
       for (var day = 1; day < 6; day++) {
-         tempHTML += `<div class="scheduleCell" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
+         tempHTML += `<div class="scheduleCellWhole" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
+         </div>`
+      }
+      tempHTML += `</div>`
+      tempInnerHTML += tempHTML
+
+      var tempHTML = `<div class="scheduleRow">`
+      for (var day = 1; day < 6; day++) {
+         tempHTML += `<div class="scheduleCellHalf" name="scheduleCell" id="scheduleCell` + day + `-` + (hour+0.5) + `"> 
          </div>`
       }
       tempHTML += `</div>`
@@ -285,30 +291,24 @@ function addCartButtonClicked() {
 // use overflow and padding to create .5 hour blocks
 function addSchedule(class_name) {
    let listof_class_times = getClassTimes(class_name);
-   console.log(listof_class_times)
    for (session of listof_class_times) {
       // if blocks conflict, style="width1/2"
       var session_start = session.start;
       var start_offset = 0
-      if (Number.isInteger(session_start) == false) {
-         session_start -= 0.5;
-         start_offset = 3;
-      }
       var scheduleCell_div = document.getElementById("scheduleCell" + session.day + "-" + session_start);
-      console.log("scheduleCell" + session.day + "-" + session.start);
       var session_length = session.end - session.start;
-      var block_size = 100 * session_length;  // block height determined by end - start
+      var block_size = 200 * session_length;  // block height determined by end - start
       var template = `
          <button type="button" class="btn btn-primary classSession" style="height:${block_size}%;">${class_name}</button>
       `;
-      scheduleCell_div.style = `padding-top: ${start_offset}vh;`;
+      //scheduleCell_div.style = `padding-top: ${start_offset}vh;`;
       scheduleCell_div.innerHTML = template;
 
    }
 }
 
 function removeCart() {
-
+   
 }
 
 // renders the class onto the schedule list
@@ -317,5 +317,14 @@ function addToSchedule(course_name) {
    
 }
 
+
 prepareSchedule()
 prepareShoppingCart()
+
+function inputEventListener(ev) {
+   if (ev.keyCode === 13) {
+      loadSearchList(filterCourses(listof_courses))
+   }
+}
+
+document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev) 

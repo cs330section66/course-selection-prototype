@@ -92,7 +92,7 @@ section {
 .notSelected {
     background-color: white;
     color: #1579f6;
-    margin: 5%;
+    margin-right: 5%
 }
 
 .upperDiv {
@@ -174,9 +174,28 @@ section {
     height: 7vh;
     border: solid .5px black;
     border-radius: 0;
-
     display: flex;
-    overflow-y: visible;
+    overflow: visible;
+}
+
+.scheduleCellWhole {
+    width: 14vh;
+    height: 3.5vh;
+    border: solid .5px black;
+    border-radius: 0;
+    border-bottom: none;
+    display: flex;
+    overflow: visible;
+}
+
+.scheduleCellHalf {
+    width: 14vh;
+    height: 3.5vh;
+    border: solid .5px black;
+    border-radius: 0;
+    border-top: none;
+    display: flex;
+    overflow: visible;
 }
 
 .scheduleRow {
@@ -199,10 +218,6 @@ section {
     display: flex;
     flex-direction: row;
 }
-
-
-
-
 
 @media (max-width: 1024px) {
     /* tablet layout here */
