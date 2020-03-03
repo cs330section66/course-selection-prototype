@@ -10,10 +10,33 @@
 
 <body>
     <div class="container">
+        <!-- shopping cart popup -->
+        <div class="modal fade" id="cartModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Hey boy</h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="cartRemoveButton" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Remove Class</button>
+                        <button id="cartAddButton" type="button" class="btn btn-primary" data-dismiss="modal">Add to
+                            Schedule</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- class filters -->
         <section class="filters">
             <div class="upperDiv">
-                <button type="button" class="btn btn-primary" id="selectClass"
+                <button type="button" class="btn btn-primary notSelected" id="selectClass"
                     onclick="pageButtonsPressed('selectClass')">
                     Select By Class
                 </button>
@@ -22,13 +45,16 @@
                     Select By Major
                 </button>
             </div>
-            <div class="mainDiv" id="byClass">
+            <div class="mainDiv" id="welcome">
+                <h1 id="pageTitle"> Press A Button Above To Access Search </h1>
+            </div>
+            <div class="mainDiv" id="byClass" style="display:none">
                 <h1 id="pageTitle"> Search For Classes Based On Class Filters </h1>
                 <div class="filtersDiv">
                     <div class="input-group input-group-sm mb-3 innerFilters">
                         Search By Keyword:
-                        <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" id="searchInput">
+                        <input type="search" class="form-control innerFilterElement" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm" id="searchInput" placeholder="Search for keyword">
                     </div>
                     <div class="dropdown innerFilters">
                         Select A Major:
@@ -37,6 +63,8 @@
                             None
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="majorSelected('None','majorButtonClass')">
+                                None</a>
                             <a class="dropdown-item" href="#"
                                 onclick="majorSelected('COMP_ENG - Computer Engineering','majorButtonClass')">COMP_ENG -
                                 Computer Engineering</a>
@@ -44,7 +72,7 @@
                                 onclick="majorSelected('COMP_SCI - Computer Science','majorButtonClass')">COMP_SCI -
                                 Computer Science</a>
                             <a class="dropdown-item" href="#"
-                                onclick="majorSelected('CIV_ENG - Civil & Environmental Engineering','majorButtonClass')">CIV_ENG
+                                onclick="majorSelected('CIV_ENV - Civil & Environmental Engineering','majorButtonClass')">CIV_ENV
                                 - Civil & Environmental Engineering</a>
                             <a class="dropdown-item" href="#"
                                 onclick="majorSelected('ECON - Economics','majorButtonClass')">ECON - Economics</a>
@@ -64,6 +92,7 @@
                             None
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="courseFilterSelected('None')">None</a>
                             <a class="dropdown-item" href="#" onclick="courseFilterSelected('contains')">contains</a>
                             <a class="dropdown-item" href="#" onclick="courseFilterSelected('greater')">greater than or
                                 equal to</a>
@@ -89,6 +118,7 @@
                             None
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="majorSelected('None','majorButtonReq')">None</a>
                             <a class="dropdown-item" href="#"
                                 onclick="majorSelected('COMP_ENG - Computer Engineering','majorButtonReq')">COMP_ENG -
                                 Computer Engineering</a>
@@ -116,6 +146,7 @@
                             None
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="academicReqSelected('None')">None</a>
                             <a class="dropdown-item" href="#" onclick="academicReqSelected('Basic Engineering')">Basic
                                 Engineering</a>
                             <a class="dropdown-item" href="#" onclick="academicReqSelected('Basic Science')">Basic
@@ -203,6 +234,16 @@
         <!-- shopping cart -->
         <section class="shoppingCart">
             <section id="shoppingCart" style="padding-left: 20px;"></section>
+            <div id="addDeleteCart">
+                <div id="addCartAlign">
+                    <button type="button" class="btn btn-primary" id="addCartButton" onclick="addCartButtonClicked()">
+                        Add </button>
+                </div>
+                <div id="deleteCartAlign">
+                    <button type="button" class="btn btn-primary" id="deleteCartButton"
+                        onclick="deleteCartButtonClicked()"> Delete </button>
+                </div>
+            </div>
         </section>
 
     </div>
