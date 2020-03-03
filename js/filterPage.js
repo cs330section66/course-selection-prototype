@@ -1,5 +1,6 @@
 //shows selectedButton page when the button is pressed, disables other page page and edits the layout
 function pageButtonsPressed(selectedButton) {
+   document.getElementById("welcome").style.display = "none"
    var selectedDiv = document.getElementById(selectedButton);
    var unselectedDiv = document.getElementById(selectedButton === "selectClass" ? "selectMajor" : "selectClass")
    //"#1579f6" is dark blue
@@ -29,22 +30,22 @@ function academicReqSelected(req) {
 }
 
 let listof_courses = [
-   { name: "Comp_Sci 214", prereq: "Comp_Sci211", status: "open", description: "data structure is good", academicreq: ["Core Courses"] },
-   { name: "Comp_Sci 213", prereq: "Comp_Sci211", status: "open", description: "systems is kinda hard", academicreq: ["Core Courses"] },
-   { name: "Sociol 110", prereq: "None", status: "open", description: "Sociology is a field of stufy that examines how people and groups interact.", academicreq: ["Theme Social Science"] },
-   { name: "Comp_Sci 348", prereq: "Comp_Sci 111, Comp_Sci 214", status: "open", description: "Core Techniques and applications of artificial intelligence.", academicreq: ["Breadth Courses", "Depth Courses"] },
-   { name: "IEMS 201", prereq: "Math 234", status: "open", description: "Collecting, summarizing, and displaying data. Drawing conclusions and making decisions", academicreq: ["Basic Engineering"] },
-   { name: "ECON 202-0", prereq: "None", status: "open", description: "Economics is the study of ...", academicreq: ["Theme Social Science"] },
-   { name: "Comp_Sci 212", prereq: "Comp_Sci 111", status: "open", description: "Fundamental concepts and tools in discrete math.", academicreq: ["Core Courses"] },
-   { name: "ECON 210-0", prereq: "None", status: "open", description: "An intro to economics with an emphasis of macroeconomics.", academicreq: ["Theme Social Science"] },
-   { name: "Civ_Env 216", prereq: "Gen_Eng 205-2", status: "open", description: "Analytical and experimental study of stresses and deformations and their application.", academicreq: ["Basic Engineering"] },
-   { name: "Comp_Sci 371", prereq: "Comp_Sci 348", status: "open", description: "Principles and practices of knowledge representation, including logics and ontologies.", academicreq: ["Breadth Courses", "Depth Courses"] },
-   { name: "Mat_Sci 201", prereq: "Chem 131", status: "open", description: "Introduces the core topis and basic concepts of Material Science", academicreq: ["Basic Engineering"] },
-   { name: "Psych 201-0", prereq: "Psych 110", status: "open", description: "The analysis of data, using computer software and a conceptual approach.", academicreq: ["Theme Social Science"] },
-   { name: "Comp_Eng 205", prereq: "None", status: "open", description: "Basics of assembly language programming. Macros, Systems, Stack, and procedure calls.", academicreq: ["Basic Engineering"] },
-   { name: "PSYCH 110-0", prereq: "None", status: "open", description: "The purpose of this course is to present an overview of the field of psychology", academicreq: ["Theme Social Science"] },
-   { name: "Comp_Sci 349", prereq: "Comp_Sci 214", status: "open", description: "The study of algorithms that improve automatically.", academicreq: ["Breadth Courses", "Depth Courses"] },
-   { name: "PSYCH 215-0", prereq: "PSYCH 110", status: "open", description: "Covers predominant theories in personalities psychology", academicreq: ["Theme Social Science"] }
+   { name: "Comp_Sci 214", prereq: "Comp_Sci211", status: "open", description: "data structure is good", academicreq: ["Core Courses"], times:[{day:2, start:16, end:17.5}, {day:4, start:16, end:17.5}] },
+   { name: "Comp_Sci 213", prereq: "Comp_Sci211", status: "open", description: "systems is kinda hard", academicreq: ["Core Courses"], times:[{day:2, start:12.5, end:14}, {day:4, start:12.5, end:14}] },
+   { name: "Sociol 110", prereq: "None", status: "open", description: "Sociology is a field of stufy that examines how people and groups interact.", academicreq: ["Theme Social Science"], times:[{day:1, start:12.5, end:14}, {day:3, start:12.5, end:14}] },
+   { name: "Comp_Sci 348", prereq: "Comp_Sci 111, Comp_Sci 214", status: "open", description: "Core Techniques and applications of artificial intelligence.", academicreq: ["Breadth Courses", "Depth Courses"], times:[{day:1, start:15, end:16}, {day:3, start:15, end:16}, {day:5, start:15, end:16}] },
+   { name: "IEMS 201", prereq: "Math 234", status: "open", description: "Collecting, summarizing, and displaying data. Drawing conclusions and making decisions", academicreq: ["Basic Engineering"], times:[{day:2, start:12.5, end:14}, {day:4, start:12.5, end:14}] },
+   { name: "ECON 202-0", prereq: "None", status: "open", description: "Economics is the study of ...", academicreq: ["Theme Social Science"], times:[{day:1, start:11, end:12}, {day:3, start:11, end:12}, {day:5, start:11, end:12}] },
+   { name: "Comp_Sci 212", prereq: "Comp_Sci 111", status: "open", description: "Fundamental concepts and tools in discrete math.", academicreq: ["Core Courses"], times:[{day:1, start:4, end:5}, {day:3, start:4, end:5}, {day:5, start:4, end:5}] },
+   { name: "ECON 210-0", prereq: "None", status: "open", description: "An intro to economics with an emphasis of macroeconomics.", academicreq: ["Theme Social Science"], times:[{day:1, start:13, end:14}, {day:3, start:13, end:14}, {day:5, start:13, end:14}] },
+   { name: "Civ_Env 216", prereq: "Gen_Eng 205-2", status: "open", description: "Analytical and experimental study of stresses and deformations and their application.", academicreq: ["Basic Engineering"], times:[{day:1, start:11, end:12}, {day:3, start:11, end:12}, {day:5, start:11, end:12}] },
+   { name: "Comp_Sci 371", prereq: "Comp_Sci 348", status: "open", description: "Principles and practices of knowledge representation, including logics and ontologies.", academicreq: ["Breadth Courses", "Depth Courses"], times:[{day:2, start:14, end:15.5}, {day:4, start:14, end:15.5}] },
+   { name: "Mat_Sci 201", prereq: "Chem 131", status: "open", description: "Introduces the core topis and basic concepts of Material Science", academicreq: ["Basic Engineering"], times:[{day:1, start:10, end:11}, {day:3, start:10, end:11}, {day:5, start:10, end:11}] },
+   { name: "Psych 201-0", prereq: "Psych 110", status: "open", description: "The analysis of data, using computer software and a conceptual approach.", academicreq: ["Theme Social Science"], times:[{day:2, start:12.5, end:14}, {day:4, start:12.5, end:14}] },
+   { name: "Comp_Eng 205", prereq: "None", status: "open", description: "Basics of assembly language programming. Macros, Systems, Stack, and procedure calls.", academicreq: ["Basic Engineering"], times:[{day:1, start:14, end:15}, {day:2, start:14, end:15}, {day:3, start:14, end:15}, {day:5, start:14, end:15}] },
+   { name: "PSYCH 110-0", prereq: "None", status: "open", description: "The purpose of this course is to present an overview of the field of psychology", academicreq: ["Theme Social Science"], times:[{day:2, start:11, end:12.5}, {day:4, start:11, end:12.5}] },
+   { name: "Comp_Sci 349", prereq: "Comp_Sci 214", status: "open", description: "The study of algorithms that improve automatically.", academicreq: ["Breadth Courses", "Depth Courses"], times:[{day:1, start:15.5, end:17}, {day:3, start:15.5, end:17}] },
+   { name: "PSYCH 215-0", prereq: "PSYCH 110", status: "open", description: "Covers predominant theories in personalities psychology", academicreq: ["Theme Social Science"], times:[{day:1, start:10, end:11}, {day:3, start:10, end:11}] }
 
 ];
 
@@ -62,7 +63,7 @@ function filterCourses(listof_courses) {
       var choosenMajor = document.getElementById("majorButtonClass").innerHTML
       var courseNoEquality = document.getElementById("courseFilter").innerHTML
       var courseNocontraint = document.getElementById("classNoInput").value
-
+      
 
       for (var i = 0; i < listof_courses.length; i++) {
          var className = listof_courses[i].name
@@ -129,8 +130,6 @@ function filterCourses(listof_courses) {
       }
 
    }
-
-
    return (filteredClassList)
 }
 
@@ -138,7 +137,42 @@ function backButtonClicked() {
    var removedList = document.getElementById("courseListingsPage");
    removedList.parentNode.removeChild(removedList);
    document.getElementsByClassName("filters")[0].style.display = "flex";
+   document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev) 
 };
+
+function addButtonClicked (name) {
+   if (listof_courses.length !== 0) {
+      var courseChosen = document.getElementById("ListCourseName").innerHTML
+      addtoShoppingCart(name)
+   }
+}
+
+// Stores list of class names in shopping cart
+listof_cart = [];
+
+function addtoShoppingCart(selected) {
+   var done = false
+   for (var row = 0; row < 2; row++) {
+      if (done) {
+         break
+      }
+      for (var column = 1; column < 6; column++) {
+         let cart_div_id = "shoppingCart" + (row*2+column);
+         let cart_button_class = "placeholder" + row + "-" + column
+         if (document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display !== "none") {
+            continue
+         }
+         else {
+            document.getElementsByClassName("placeholder" + row + "-" + column)[0].innerHTML = selected;
+            document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display = "flex";
+            document.getElementById(cart_div_id).onclick = function () { CartClicked(selected); };
+            listof_cart.push(selected);
+            done = true
+            break
+         }
+      }
+   }
+}
 
 ///* Loads input list of classes *///
 function loadSearchList(listof_courses) {
@@ -159,10 +193,13 @@ function loadSearchList(listof_courses) {
       let template = `
          <a class="list-group-item">
             <div class="coursesItem">
-               <h2>${course.name}</h2>
+               <h2 id = "ListCourseName" >${course.name} </h2>
                <h5>status: ${course.status}</h5>
                <h5>pre-req: ${course.prereq}</h5>
                <p>Description: ${course.description}</p>
+               <button type="button" class="btn btn-primary coursesItem" id="addButton"
+                        onclick="addButtonClicked('`+ course.name + `')"> Add to Shopping Cart 
+               </button>
             </div>
          </a>`;
 
@@ -180,7 +217,15 @@ function prepareSchedule() {
    for (var hour = 9; hour < 19; hour ++) {
       var tempHTML = `<div class="scheduleRow">`
       for (var day = 1; day < 6; day++) {
-         tempHTML += `<div class="card scheduleCell" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
+         tempHTML += `<div class="scheduleCellWhole" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
+         </div>`
+      }
+      tempHTML += `</div>`
+      tempInnerHTML += tempHTML
+
+      var tempHTML = `<div class="scheduleRow">`
+      for (var day = 1; day < 6; day++) {
+         tempHTML += `<div class="scheduleCellHalf" name="scheduleCell" id="scheduleCell` + day + `-` + (hour+0.5) + `"> 
          </div>`
       }
       tempHTML += `</div>`
@@ -200,7 +245,8 @@ function prepareShoppingCart() {
       var tempHTML = `<div class="scheduleRow">`
       for (var column = 1; column < 6; column++) {
          tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + (row*2+column) + `"> 
-         </div>`
+         <button class="btn btn-primary placeholder` + row + `-` + column + `" data-toggle="modal" data-target="#cartModalCenter" style="display: none" onclick="this.blur();"> </div>
+         </button>`
       }
       tempHTML += `</div>`
       tempInnerHTML += tempHTML
@@ -209,5 +255,76 @@ function prepareShoppingCart() {
    shoppingCart.innerHTML = tempInnerHTML
 }
 
+
+// searches listof courses for class times
+// returns class time in usable format
+function getClassTimes(class_name) {
+   for (course of listof_courses){
+      if (course.name == class_name) {
+         // add class time sortable format for adding and , return
+         return course.times;
+      }
+   }
+   return None;
+}
+
+// Renders of class information on popup modal
+function CartClicked(class_name) {
+   // add schedule with the getClassTime outputted time
+   document.getElementById("cartAddButton").onclick = function() {addSchedule(class_name);};
+   document.getElementById("cartRemoveButton").onclick = removeCart();
+}
+
+// add the selected classes to the schedule list
+
+function addCartButtonClicked() {
+   // for each element in class selectedcourses
+      // get innerHTML name
+      // looks through the classes object for times
+      // call addToSchedule with the class name
+      // let class_name = document.getElementsByClassName("")[0].innerHTML;
+}
+
+
+// response to addSchedule button click
+// adds button to schedule div
+// use overflow and padding to create .5 hour blocks
+function addSchedule(class_name) {
+   let listof_class_times = getClassTimes(class_name);
+   for (session of listof_class_times) {
+      // if blocks conflict, style="width1/2"
+      var session_start = session.start;
+      var start_offset = 0
+      var scheduleCell_div = document.getElementById("scheduleCell" + session.day + "-" + session_start);
+      var session_length = session.end - session.start;
+      var block_size = 200 * session_length;  // block height determined by end - start
+      var template = `
+         <button type="button" class="btn btn-primary classSession" style="height:${block_size}%;">${class_name}</button>
+      `;
+      //scheduleCell_div.style = `padding-top: ${start_offset}vh;`;
+      scheduleCell_div.innerHTML = template;
+
+   }
+}
+
+function removeCart() {
+   
+}
+
+// renders the class onto the schedule list
+
+function addToSchedule(course_name) {
+   
+}
+
+
 prepareSchedule()
 prepareShoppingCart()
+
+function inputEventListener(ev) {
+   if (ev.keyCode === 13) {
+      loadSearchList(filterCourses(listof_courses))
+   }
+}
+
+document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev) 
