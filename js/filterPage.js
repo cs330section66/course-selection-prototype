@@ -165,7 +165,7 @@ function addtoShoppingCart(selected) {
          else {
             document.getElementsByClassName("placeholder" + row + "-" + column)[0].innerHTML = selected;
             document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display = "flex";
-            document.getElementById(cart_div_id).onclick = function () { CartClicked(selected); };
+            document.getElementById(cart_div_id).onclick = function () { CartClicked(selected, cart_button_class); };
             listof_cart.push(selected);
             done = true
             break
@@ -245,7 +245,7 @@ function prepareShoppingCart() {
       var tempHTML = `<div class="scheduleRow">`
       for (var column = 1; column < 6; column++) {
          tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + (row*2+column) + `"> 
-         <button class="btn btn-primary placeholder` + row + `-` + column + `" data-toggle="modal" data-target="#cartModalCenter" style="display: none" onclick="this.blur();"> </div>
+         <button class="cartButton btn btn-primary notSelectedCart placeholder` + row + `-` + column + `" data-toggle="modal" data-target="#cartModalCenter" style="font-size: 75%; display: none" onclick="this.blur();"> </div>
          </button>`
       }
       tempHTML += `</div>`
@@ -268,22 +268,56 @@ function getClassTimes(class_name) {
    return None;
 }
 
+function getAllClassInfo(class_name) {
+   for (course of listof_courses){
+      if (course.name == class_name) {
+         // add class time sortable format for adding and , return
+         return {prereq:course.prereq, status:course.status, description: course.description, times: course.times};
+      }
+   }
+   return None;
+}
+
+function renderModal(class_name) {
+   let title_div = document.getElementById("modalTitle");
+   title_div.innerHTML = class_name;
+   let body_div = document.getElementById("modalBody");
+   let info_obj = getAllClassInfo(class_name);
+   console.log(info_obj);
+   let info_status = info_obj.status;
+   let info_prereq = info_obj.prereq;
+   let info_times = info_obj.times;
+   let info_description = info_obj.description;
+   document.getElementById("modalStatus").innerHTML = `<h5>Status: ${info_status}</h5>`;
+   document.getElementById("modalPrereq").innerHTML = `<h5>Prereq: ${info_prereq}</h5>`;
+   document.getElementById("modalDescription").innerHTML = `<h5>Description: ${info_description}</h5>`;
+}
+
 // Renders of class information on popup modal
-function CartClicked(class_name) {
+function CartClicked(class_name, cart_button_class) {
+   renderModal(class_name);
    // add schedule with the getClassTime outputted time
-   document.getElementById("cartAddButton").onclick = function() {addSchedule(class_name);};
+   document.getElementById("cartAddButton").onclick = function() {renderSelectedCartButton(cart_button_class); addSchedule(class_name);};
    document.getElementById("cartRemoveButton").onclick = removeCart();
+
 }
 
-// add the selected classes to the schedule list
-
-function addCartButtonClicked() {
-   // for each element in class selectedcourses
-      // get innerHTML name
-      // looks through the classes object for times
-      // call addToSchedule with the class name
-      // let class_name = document.getElementsByClassName("")[0].innerHTML;
+// renders selected/notselected shopping cart button
+function renderSelectedCartButton(cart_button_class) {
+   let cart_course_button = document.getElementsByClassName(cart_button_class)[0]
+   if (cart_course_button.classList.contains('selectedCart')) {
+      cart_course_button.classList.remove('selectedCart');
+      cart_course_button.classList.add('notSelectedCart');
+   }
+   else if (cart_course_button.classList.contains('notSelectedCart')) {
+      cart_course_button.classList.remove('notSelectedCart');
+      cart_course_button.classList.add('selectedCart');
+   }
 }
+// add to button def below
+// reponds to classSession button click hide addtoschedule button and modifies onclick like CartClicked()
+//function classSessionClicked()
+   //removebutton onclick unhides add to schedule
 
 
 // response to addSchedule button click
@@ -299,7 +333,7 @@ function addSchedule(class_name) {
       var session_length = session.end - session.start;
       var block_size = 200 * session_length;  // block height determined by end - start
       var template = `
-         <button type="button" class="btn btn-primary classSession" style="height:${block_size}%;">${class_name}</button>
+         <button type="button" class="btn btn-primary classSession" data-toggle="modal" data-target="#cartModalCenter" style="height:${block_size}%;">${class_name}</button>
       `;
       //scheduleCell_div.style = `padding-top: ${start_offset}vh;`;
       scheduleCell_div.innerHTML = template;
