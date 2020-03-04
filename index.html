@@ -16,13 +16,24 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="modalTitle">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <h2>Hey boy</h2>
+                    <div id="modalBody" class="modal-body">
+                        <div id="modalStatus">
+                            <h5>Status: Null</h5>
+                        </div>
+                        <div id="modalPrereq">
+                            <h5>Prereq: Null</h5>
+                        </div>
+                        <div id="modalTimes">
+                            <h5>Times: Null</h5>
+                        </div>
+                        <div id="modalDescription">
+                            <p>Description: Null</p>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button id="cartRemoveButton" type="button" class="btn btn-secondary"
@@ -234,16 +245,6 @@
         <!-- shopping cart -->
         <section class="shoppingCart">
             <section id="shoppingCart" style="padding-left: 20px;"></section>
-            <div id="addDeleteCart">
-                <div id="addCartAlign">
-                    <button type="button" class="btn btn-primary" id="addCartButton" onclick="addCartButtonClicked()">
-                        Add </button>
-                </div>
-                <div id="deleteCartAlign">
-                    <button type="button" class="btn btn-primary" id="deleteCartButton"
-                        onclick="deleteCartButtonClicked()"> Delete </button>
-                </div>
-            </div>
         </section>
 
     </div>

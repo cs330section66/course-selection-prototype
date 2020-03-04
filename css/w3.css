@@ -52,33 +52,22 @@ section {
     flex-direction: column;
 }
 
-#addDeleteCart {
+.cartButton {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     width: 100%;
 }
 
-#addCartAlign {
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 8%;
-    width: 50%;
+.notSelectedCart {
 }
 
-#deleteCartAlign {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-right: 3%;
-    width: 50%;
+.selectedCart {
+    color: rgb(21,127,250);
+    background: white;
 }
 
-#addCartButton {
-    background: #303685;
-}
-#deleteCartButton {
-    background: orange;
-}
 /* end of add shopping card */
 
 /* start of schedule */
@@ -87,6 +76,8 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
+    font-size: 75%;
 }
 
 .notSelected {
