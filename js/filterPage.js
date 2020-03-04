@@ -17,6 +17,8 @@ function pageButtonsPressed(selectedButton) {
 //displays the major user selected when the dropdown option is selected
 function majorSelected(major, id) {
    document.getElementById(id).innerHTML = major
+   console.log("hello",major)
+   enableAcademicReq(major)
 }
 
 //displays the course filter the user selects
@@ -48,6 +50,18 @@ let listof_courses = [
    { name: "PSYCH 215-0", prereq: "PSYCH 110", status: "open", description: "Covers predominant theories in personalities psychology", academicreq: ["Theme Social Science"], times:[{day:1, start:10, end:11}, {day:3, start:10, end:11}] }
 
 ];
+
+
+function enableAcademicReq (major) {
+   if (major !== "None") {
+      document.getElementById("reqButton").disabled = false
+   }
+   else {
+      document.getElementById("reqButton").disabled = true
+   }
+   
+}
+
 
 function submitButtonClicked() {
    //move on to classes page
@@ -144,13 +158,18 @@ function addButtonClicked (name) {
    if (listof_courses.length !== 0) {
       var courseChosen = document.getElementById("ListCourseName").innerHTML
       addtoShoppingCart(name)
+      document.getElementById("addButton"+ name).disabled = true
+
    }
 }
 
 // Stores list of class names in shopping cart
-listof_cart = [];
+var listof_cart = [];
 
 function addtoShoppingCart(selected) {
+   if (listof_cart.indexOf(selected) === -1) {
+      listof_cart.push(selected);
+   }
    var done = false
    for (var row = 0; row < 2; row++) {
       if (done) {
@@ -166,7 +185,6 @@ function addtoShoppingCart(selected) {
             document.getElementsByClassName("placeholder" + row + "-" + column)[0].innerHTML = selected;
             document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display = "flex";
             document.getElementById(cart_div_id).onclick = function () { CartClicked(selected, cart_button_class); };
-            listof_cart.push(selected);
             done = true
             break
          }
@@ -197,7 +215,7 @@ function loadSearchList(listof_courses) {
                <h5>status: ${course.status}</h5>
                <h5>pre-req: ${course.prereq}</h5>
                <p>Description: ${course.description}</p>
-               <button type="button" class="btn btn-primary coursesItem" id="addButton"
+               <button type="button" class="btn btn-primary coursesItem" id="addButton`+ course.name +`" 
                         onclick="addButtonClicked('`+ course.name + `')"> Add to Shopping Cart 
                </button>
             </div>
@@ -298,7 +316,7 @@ function CartClicked(class_name, cart_button_class) {
    renderModal(class_name);
    // add schedule with the getClassTime outputted time
    document.getElementById("cartAddButton").onclick = function() {renderSelectedCartButton(cart_button_class); addSchedule(class_name);};
-   document.getElementById("cartRemoveButton").onclick = removeCart();
+   document.getElementById("cartRemoveButton").onclick = removeCart(class_name);
 
 }
 
@@ -341,8 +359,15 @@ function addSchedule(class_name) {
    }
 }
 
-function removeCart() {
-   
+function removeCart(name) {
+   listof_cart.splice(listof_cart.indexOf(name),1)
+   document.getElementById("addButton"+ name).disabled = false
+   prepareShoppingCart()
+   for (var i = 0; i < listof_cart.length; i++) {
+      var className = listof_cart[i]
+      addtoShoppingCart(className)
+   }
+
 }
 
 // renders the class onto the schedule list
