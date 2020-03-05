@@ -44,14 +44,46 @@ section {
     flex-direction: column;
 }
 
+
+/* start of shopping cart */
 .shoppingCart {
     grid-area: c;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.notSelectedCart {
+}
+
+.selectedCart {
+    color: rgb(21,127,250);
+    background: white;
+}
+
+/* end of add shopping card */
+
+/* start of schedule */
+.classSession {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    font-size: 75%;
 }
 
 .notSelected {
     background-color: white;
     color: #1579f6;
-    margin: 5%;
+    margin-right: 5%
 }
 
 .upperDiv {
@@ -102,7 +134,7 @@ section {
 
 .innerFilterElement {
     margin-left: 2%;
-    border: solid 2px black
+    border: solid .5px black
 }
 
 #noresults {
@@ -131,9 +163,30 @@ section {
 .scheduleCell {
     width: 14vh;
     height: 7vh;
-    border: solid 2px black;
+    border: solid .5px black;
     border-radius: 0;
-    
+    display: flex;
+    overflow: visible;
+}
+
+.scheduleCellWhole {
+    width: 14vh;
+    height: 3.5vh;
+    border: solid .5px black;
+    border-radius: 0;
+    border-bottom: none;
+    display: flex;
+    overflow: visible;
+}
+
+.scheduleCellHalf {
+    width: 14vh;
+    height: 3.5vh;
+    border: solid .5px black;
+    border-radius: 0;
+    border-top: none;
+    display: flex;
+    overflow: visible;
 }
 
 .scheduleRow {
@@ -152,15 +205,10 @@ section {
     height: 7vh;
     text-align: center;
 }
-
 .scheduleWHours {
     display: flex;
     flex-direction: row;
 }
-
-
-
-
 
 @media (max-width: 1024px) {
     /* tablet layout here */
