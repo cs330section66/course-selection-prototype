@@ -178,12 +178,12 @@ function addtoShoppingCart(selected) {
       for (var column = 1; column < 6; column++) {
          let cart_div_id = "shoppingCart" + (row*2+column);
          let cart_button_class = "placeholder" + row + "-" + column
-         if (document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display !== "none") {
+         if (document.getElementsByClassName(cart_button_class)[0].style.display !== "none") {
             continue
          }
          else {
-            document.getElementsByClassName("placeholder" + row + "-" + column)[0].innerHTML = selected;
-            document.getElementsByClassName("placeholder" + row + "-" + column)[0].style.display = "flex";
+            document.getElementsByClassName(cart_button_class)[0].innerHTML = selected;
+            document.getElementsByClassName(cart_button_class)[0].style.display = "flex";
             document.getElementById(cart_div_id).onclick = function () { CartClicked(selected, cart_button_class); };
             done = true
             break
@@ -311,14 +311,58 @@ function renderModal(class_name) {
    document.getElementById("modalDescription").innerHTML = `<h5>Description: ${info_description}</h5>`;
 }
 
+let listof_schedule = []
+
+
 // Renders of class information on popup modal
 function CartClicked(class_name, cart_button_class) {
    renderModal(class_name);
    // add schedule with the getClassTime outputted time
-   document.getElementById("cartAddButton").onclick = function() {renderSelectedCartButton(cart_button_class); addSchedule(class_name);};
-   document.getElementById("cartRemoveButton").onclick = removeCart(class_name);
+   // if class is in schedule, hide add button
+   if (listof_schedule.indexOf(class_name) >= 0) {
+      document.getElementById("cartAddButton").style.display = "none";
+   }
+   else {
+      document.getElementById("cartAddButton").style.display = "flex";
+   }
+   document.getElementById("cartAddButton").onclick = function() {renderSelectedCartButton(cart_button_class); addSchedule(class_name,cart_button_class);};
+   document.getElementById("cartRemoveButton").onclick = function () {removeCart(class_name); removeSchedule(class_name)};
 
 }
+
+// removed all class sesssion of a course if exists
+function removeSchedule(class_name) {
+   listof_schedule.splice(listof_schedule.indexOf("class_name"), 1);
+   let listof_session_div = document.getElementsByClassName("classSession" + class_name);
+   console.log("removeSchedule: " + listof_session_div[0].innerHTML + listof_session_div[1].innerHTML);
+   if (listof_session_div != []) {
+      let length = listof_session_div.length;
+      let i = 0;
+      while (i< length) {
+         listof_session_div[0].parentNode.removeChild(listof_session_div[0]);
+         i++;
+      }
+      //for (var session_div of listof_session_div) {
+         //console.log(session_div.innerHTML);
+         //session_div.parentNode.removeChild(session_div);
+      //}
+   }
+}
+
+// Renders class infomation on popup modal and update onclick response
+function ScheduleClicked(class_name, cart_button_class) {
+   renderModal(class_name);
+   // if class is in schedule, hide add button
+   if (listof_schedule.indexOf(class_name) >= 0) {
+      document.getElementById("cartAddButton").style.display = "none";
+   }
+   else {
+      document.getElementById("cartAddButton").style.display = "flex";
+   }
+   console.log("ScheduleClicked: " + cart_button_class);
+   document.getElementById("cartRemoveButton").onclick = function() {renderSelectedCartButton(cart_button_class); removeSchedule(class_name);};
+}
+
 
 // renders selected/notselected shopping cart button
 function renderSelectedCartButton(cart_button_class) {
@@ -341,7 +385,8 @@ function renderSelectedCartButton(cart_button_class) {
 // response to addSchedule button click
 // adds button to schedule div
 // use overflow and padding to create .5 hour blocks
-function addSchedule(class_name) {
+function addSchedule(class_name, cart_button_class) {
+   listof_schedule.push(class_name);
    let listof_class_times = getClassTimes(class_name);
    for (session of listof_class_times) {
       // if blocks conflict, style="width1/2"
@@ -351,7 +396,7 @@ function addSchedule(class_name) {
       var session_length = session.end - session.start;
       var block_size = 200 * session_length;  // block height determined by end - start
       var template = `
-         <button type="button" class="btn btn-primary classSession" data-toggle="modal" data-target="#cartModalCenter" style="height:${block_size}%;">${class_name}</button>
+         <button type="button" class="classSession${class_name} btn btn-primary classSession" onclick="ScheduleClicked('${class_name}', '${cart_button_class}')" data-toggle="modal" data-target="#cartModalCenter" style="height:${block_size}%;">${class_name}</button>
       `;
       //scheduleCell_div.style = `padding-top: ${start_offset}vh;`;
       scheduleCell_div.innerHTML = template;
@@ -359,6 +404,8 @@ function addSchedule(class_name) {
    }
 }
 
+// --------!!!-------
+// removes item from cart and if selected, removed from schedule
 function removeCart(name) {
    listof_cart.splice(listof_cart.indexOf(name),1)
    document.getElementById("addButton"+ name).disabled = false
