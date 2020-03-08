@@ -210,6 +210,44 @@ section {
     flex-direction: row;
 }
 
+#notAccessed {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.loginPageCard {
+    width: 60vh;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 5vh;
+    border-radius: 5%;
+    background-color: white;
+    padding-left: 1%;
+    padding-top: 10vh
+}
+
+.loginPage {
+    width: 700vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.loginPageCardInner {
+    margin-left: 2vh;
+    width: 40vh;
+    padding-top: 2vh;
+}
+
+#netID {
+    margin-top: 1vh;
+}
+
+
 @media (max-width: 1024px) {
     /* tablet layout here */
     .container {

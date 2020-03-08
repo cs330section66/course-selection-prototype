@@ -17,7 +17,7 @@ function pageButtonsPressed(selectedButton) {
 //displays the major user selected when the dropdown option is selected
 function majorSelected(major, id) {
    document.getElementById(id).innerHTML = major
-   console.log("hello",major)
+   console.log("hello", major)
    enableAcademicReq(major)
 }
 
@@ -32,34 +32,34 @@ function academicReqSelected(req) {
 }
 
 let listof_courses = [
-   { name: "Comp_Sci 214", prereq: "Comp_Sci211", status: "open", description: "data structure is good", academicreq: ["Core Courses"], times:[{day:2, start:16, end:17.5}, {day:4, start:16, end:17.5}] },
-   { name: "Comp_Sci 213", prereq: "Comp_Sci211", status: "open", description: "systems is kinda hard", academicreq: ["Core Courses"], times:[{day:2, start:12.5, end:14}, {day:4, start:12.5, end:14}] },
-   { name: "Sociol 110", prereq: "None", status: "open", description: "Sociology is a field of stufy that examines how people and groups interact.", academicreq: ["Theme Social Science"], times:[{day:1, start:12.5, end:14}, {day:3, start:12.5, end:14}] },
-   { name: "Comp_Sci 348", prereq: "Comp_Sci 111, Comp_Sci 214", status: "open", description: "Core Techniques and applications of artificial intelligence.", academicreq: ["Breadth Courses", "Depth Courses"], times:[{day:1, start:15, end:16}, {day:3, start:15, end:16}, {day:5, start:15, end:16}] },
-   { name: "IEMS 201", prereq: "Math 234", status: "open", description: "Collecting, summarizing, and displaying data. Drawing conclusions and making decisions", academicreq: ["Basic Engineering"], times:[{day:2, start:12.5, end:14}, {day:4, start:12.5, end:14}] },
-   { name: "ECON 202-0", prereq: "None", status: "open", description: "Economics is the study of ...", academicreq: ["Theme Social Science"], times:[{day:1, start:11, end:12}, {day:3, start:11, end:12}, {day:5, start:11, end:12}] },
-   { name: "Comp_Sci 212", prereq: "Comp_Sci 111", status: "open", description: "Fundamental concepts and tools in discrete math.", academicreq: ["Core Courses"], times:[{day:1, start:4, end:5}, {day:3, start:4, end:5}, {day:5, start:4, end:5}] },
-   { name: "ECON 210-0", prereq: "None", status: "open", description: "An intro to economics with an emphasis of macroeconomics.", academicreq: ["Theme Social Science"], times:[{day:1, start:13, end:14}, {day:3, start:13, end:14}, {day:5, start:13, end:14}] },
-   { name: "Civ_Env 216", prereq: "Gen_Eng 205-2", status: "open", description: "Analytical and experimental study of stresses and deformations and their application.", academicreq: ["Basic Engineering"], times:[{day:1, start:11, end:12}, {day:3, start:11, end:12}, {day:5, start:11, end:12}] },
-   { name: "Comp_Sci 371", prereq: "Comp_Sci 348", status: "open", description: "Principles and practices of knowledge representation, including logics and ontologies.", academicreq: ["Breadth Courses", "Depth Courses"], times:[{day:2, start:14, end:15.5}, {day:4, start:14, end:15.5}] },
-   { name: "Mat_Sci 201", prereq: "Chem 131", status: "open", description: "Introduces the core topis and basic concepts of Material Science", academicreq: ["Basic Engineering"], times:[{day:1, start:10, end:11}, {day:3, start:10, end:11}, {day:5, start:10, end:11}] },
-   { name: "Psych 201-0", prereq: "Psych 110", status: "open", description: "The analysis of data, using computer software and a conceptual approach.", academicreq: ["Theme Social Science"], times:[{day:2, start:12.5, end:14}, {day:4, start:12.5, end:14}] },
-   { name: "Comp_Eng 205", prereq: "None", status: "open", description: "Basics of assembly language programming. Macros, Systems, Stack, and procedure calls.", academicreq: ["Basic Engineering"], times:[{day:1, start:14, end:15}, {day:2, start:14, end:15}, {day:3, start:14, end:15}, {day:5, start:14, end:15}] },
-   { name: "PSYCH 110-0", prereq: "None", status: "open", description: "The purpose of this course is to present an overview of the field of psychology", academicreq: ["Theme Social Science"], times:[{day:2, start:11, end:12.5}, {day:4, start:11, end:12.5}] },
-   { name: "Comp_Sci 349", prereq: "Comp_Sci 214", status: "open", description: "The study of algorithms that improve automatically.", academicreq: ["Breadth Courses", "Depth Courses"], times:[{day:1, start:15.5, end:17}, {day:3, start:15.5, end:17}] },
-   { name: "PSYCH 215-0", prereq: "PSYCH 110", status: "open", description: "Covers predominant theories in personalities psychology", academicreq: ["Theme Social Science"], times:[{day:1, start:10, end:11}, {day:3, start:10, end:11}] }
+   { name: "Comp_Sci 214", prereq: "Comp_Sci211", status: "open", description: "data structure is good", academicreq: ["Core Courses"], times: [{ day: 2, start: 16, end: 17.5 }, { day: 4, start: 16, end: 17.5 }] },
+   { name: "Comp_Sci 213", prereq: "Comp_Sci211", status: "open", description: "systems is kinda hard", academicreq: ["Core Courses"], times: [{ day: 2, start: 12.5, end: 14 }, { day: 4, start: 12.5, end: 14 }] },
+   { name: "Sociol 110", prereq: "None", status: "open", description: "Sociology is a field of stufy that examines how people and groups interact.", academicreq: ["Theme Social Science"], times: [{ day: 1, start: 12.5, end: 14 }, { day: 3, start: 12.5, end: 14 }] },
+   { name: "Comp_Sci 348", prereq: "Comp_Sci 111, Comp_Sci 214", status: "open", description: "Core Techniques and applications of artificial intelligence.", academicreq: ["Breadth Courses", "Depth Courses"], times: [{ day: 1, start: 15, end: 16 }, { day: 3, start: 15, end: 16 }, { day: 5, start: 15, end: 16 }] },
+   { name: "IEMS 201", prereq: "Math 234", status: "open", description: "Collecting, summarizing, and displaying data. Drawing conclusions and making decisions", academicreq: ["Basic Engineering"], times: [{ day: 2, start: 12.5, end: 14 }, { day: 4, start: 12.5, end: 14 }] },
+   { name: "ECON 202-0", prereq: "None", status: "open", description: "Economics is the study of ...", academicreq: ["Theme Social Science"], times: [{ day: 1, start: 11, end: 12 }, { day: 3, start: 11, end: 12 }, { day: 5, start: 11, end: 12 }] },
+   { name: "Comp_Sci 212", prereq: "Comp_Sci 111", status: "open", description: "Fundamental concepts and tools in discrete math.", academicreq: ["Core Courses"], times: [{ day: 1, start: 4, end: 5 }, { day: 3, start: 4, end: 5 }, { day: 5, start: 4, end: 5 }] },
+   { name: "ECON 210-0", prereq: "None", status: "open", description: "An intro to economics with an emphasis of macroeconomics.", academicreq: ["Theme Social Science"], times: [{ day: 1, start: 13, end: 14 }, { day: 3, start: 13, end: 14 }, { day: 5, start: 13, end: 14 }] },
+   { name: "Civ_Env 216", prereq: "Gen_Eng 205-2", status: "open", description: "Analytical and experimental study of stresses and deformations and their application.", academicreq: ["Basic Engineering"], times: [{ day: 1, start: 11, end: 12 }, { day: 3, start: 11, end: 12 }, { day: 5, start: 11, end: 12 }] },
+   { name: "Comp_Sci 371", prereq: "Comp_Sci 348", status: "open", description: "Principles and practices of knowledge representation, including logics and ontologies.", academicreq: ["Breadth Courses", "Depth Courses"], times: [{ day: 2, start: 14, end: 15.5 }, { day: 4, start: 14, end: 15.5 }] },
+   { name: "Mat_Sci 201", prereq: "Chem 131", status: "open", description: "Introduces the core topis and basic concepts of Material Science", academicreq: ["Basic Engineering"], times: [{ day: 1, start: 10, end: 11 }, { day: 3, start: 10, end: 11 }, { day: 5, start: 10, end: 11 }] },
+   { name: "Psych 201-0", prereq: "Psych 110", status: "open", description: "The analysis of data, using computer software and a conceptual approach.", academicreq: ["Theme Social Science"], times: [{ day: 2, start: 12.5, end: 14 }, { day: 4, start: 12.5, end: 14 }] },
+   { name: "Comp_Eng 205", prereq: "None", status: "open", description: "Basics of assembly language programming. Macros, Systems, Stack, and procedure calls.", academicreq: ["Basic Engineering"], times: [{ day: 1, start: 14, end: 15 }, { day: 2, start: 14, end: 15 }, { day: 3, start: 14, end: 15 }, { day: 5, start: 14, end: 15 }] },
+   { name: "PSYCH 110-0", prereq: "None", status: "open", description: "The purpose of this course is to present an overview of the field of psychology", academicreq: ["Theme Social Science"], times: [{ day: 2, start: 11, end: 12.5 }, { day: 4, start: 11, end: 12.5 }] },
+   { name: "Comp_Sci 349", prereq: "Comp_Sci 214", status: "open", description: "The study of algorithms that improve automatically.", academicreq: ["Breadth Courses", "Depth Courses"], times: [{ day: 1, start: 15.5, end: 17 }, { day: 3, start: 15.5, end: 17 }] },
+   { name: "PSYCH 215-0", prereq: "PSYCH 110", status: "open", description: "Covers predominant theories in personalities psychology", academicreq: ["Theme Social Science"], times: [{ day: 1, start: 10, end: 11 }, { day: 3, start: 10, end: 11 }] }
 
 ];
 
 
-function enableAcademicReq (major) {
+function enableAcademicReq(major) {
    if (major !== "None") {
       document.getElementById("reqButton").disabled = false
    }
    else {
       document.getElementById("reqButton").disabled = true
    }
-   
+
 }
 
 
@@ -77,7 +77,7 @@ function filterCourses(listof_courses) {
       var choosenMajor = document.getElementById("majorButtonClass").innerHTML
       var courseNoEquality = document.getElementById("courseFilter").innerHTML
       var courseNocontraint = document.getElementById("classNoInput").value
-      
+
 
       for (var i = 0; i < listof_courses.length; i++) {
          var className = listof_courses[i].name
@@ -151,14 +151,14 @@ function backButtonClicked() {
    var removedList = document.getElementById("courseListingsPage");
    removedList.parentNode.removeChild(removedList);
    document.getElementsByClassName("filters")[0].style.display = "flex";
-   document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev) 
+   document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev)
 };
 
-function addButtonClicked (name) {
+function addButtonClicked(name) {
    if (listof_courses.length !== 0) {
       var courseChosen = document.getElementById("ListCourseName").innerHTML
       addtoShoppingCart(name)
-      document.getElementById("addButton"+ name).disabled = true
+      document.getElementById("addButton" + name).disabled = true
 
    }
 }
@@ -176,7 +176,7 @@ function addtoShoppingCart(selected) {
          break
       }
       for (var column = 1; column < 6; column++) {
-         let cart_div_id = "shoppingCart" + (row*2+column);
+         let cart_div_id = "shoppingCart" + (row * 2 + column);
          let cart_button_class = "placeholder" + row + "-" + column
          if (document.getElementsByClassName(cart_button_class)[0].style.display !== "none") {
             continue
@@ -215,7 +215,7 @@ function loadSearchList(listof_courses) {
                <h5>status: ${course.status}</h5>
                <h5>pre-req: ${course.prereq}</h5>
                <p>Description: ${course.description}</p>
-               <button type="button" class="btn btn-primary coursesItem" id="addButton`+ course.name +`" 
+               <button type="button" class="btn btn-primary coursesItem" id="addButton`+ course.name + `" 
                         onclick="addButtonClicked('`+ course.name + `')"> Add to Shopping Cart 
                </button>
             </div>
@@ -232,7 +232,7 @@ function loadSearchList(listof_courses) {
 function prepareSchedule() {
    var schedule = document.getElementById("schedule")
    var tempInnerHTML = `<div style="border: solid 2px black;">`
-   for (var hour = 9; hour < 19; hour ++) {
+   for (var hour = 9; hour < 19; hour++) {
       var tempHTML = `<div class="scheduleRow">`
       for (var day = 1; day < 6; day++) {
          tempHTML += `<div class="scheduleCellWhole" name="scheduleCell" id="scheduleCell` + day + `-` + hour + `"> 
@@ -243,7 +243,7 @@ function prepareSchedule() {
 
       var tempHTML = `<div class="scheduleRow">`
       for (var day = 1; day < 6; day++) {
-         tempHTML += `<div class="scheduleCellHalf" name="scheduleCell" id="scheduleCell` + day + `-` + (hour+0.5) + `"> 
+         tempHTML += `<div class="scheduleCellHalf" name="scheduleCell" id="scheduleCell` + day + `-` + (hour + 0.5) + `"> 
          </div>`
       }
       tempHTML += `</div>`
@@ -262,7 +262,7 @@ function prepareShoppingCart() {
    for (var row = 0; row < 2; row++) {
       var tempHTML = `<div class="scheduleRow">`
       for (var column = 1; column < 6; column++) {
-         tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + (row*2+column) + `"> 
+         tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + (row * 2 + column) + `"> 
          <button class="cartButton btn btn-primary notSelectedCart placeholder` + row + `-` + column + `" data-toggle="modal" data-target="#cartModalCenter" style="font-size: 75%; display: none" onclick="this.blur();"> </div>
          </button>`
       }
@@ -277,7 +277,7 @@ function prepareShoppingCart() {
 // searches listof courses for class times
 // returns class time in usable format
 function getClassTimes(class_name) {
-   for (course of listof_courses){
+   for (course of listof_courses) {
       if (course.name == class_name) {
          // add class time sortable format for adding and , return
          return course.times;
@@ -287,10 +287,10 @@ function getClassTimes(class_name) {
 }
 
 function getAllClassInfo(class_name) {
-   for (course of listof_courses){
+   for (course of listof_courses) {
       if (course.name == class_name) {
          // add class time sortable format for adding and , return
-         return {prereq:course.prereq, status:course.status, description: course.description, times: course.times};
+         return { prereq: course.prereq, status: course.status, description: course.description, times: course.times };
       }
    }
    return None;
@@ -325,8 +325,8 @@ function CartClicked(class_name, cart_button_class) {
    else {
       document.getElementById("cartAddButton").style.display = "flex";
    }
-   document.getElementById("cartAddButton").onclick = function() {renderSelectedCartButton(cart_button_class); addSchedule(class_name,cart_button_class);};
-   document.getElementById("cartRemoveButton").onclick = function () {removeCart(class_name); removeSchedule(class_name)};
+   document.getElementById("cartAddButton").onclick = function () { renderSelectedCartButton(cart_button_class); addSchedule(class_name, cart_button_class); };
+   document.getElementById("cartRemoveButton").onclick = function () { removeCart(class_name); removeSchedule(class_name) };
 
 }
 
@@ -338,13 +338,13 @@ function removeSchedule(class_name) {
    if (listof_session_div != []) {
       let length = listof_session_div.length;
       let i = 0;
-      while (i< length) {
+      while (i < length) {
          listof_session_div[0].parentNode.removeChild(listof_session_div[0]);
          i++;
       }
       //for (var session_div of listof_session_div) {
-         //console.log(session_div.innerHTML);
-         //session_div.parentNode.removeChild(session_div);
+      //console.log(session_div.innerHTML);
+      //session_div.parentNode.removeChild(session_div);
       //}
    }
 }
@@ -360,7 +360,7 @@ function ScheduleClicked(class_name, cart_button_class) {
       document.getElementById("cartAddButton").style.display = "flex";
    }
    console.log("ScheduleClicked: " + cart_button_class);
-   document.getElementById("cartRemoveButton").onclick = function() {renderSelectedCartButton(cart_button_class); removeSchedule(class_name);};
+   document.getElementById("cartRemoveButton").onclick = function () { renderSelectedCartButton(cart_button_class); removeSchedule(class_name); };
 }
 
 
@@ -379,7 +379,7 @@ function renderSelectedCartButton(cart_button_class) {
 // add to button def below
 // reponds to classSession button click hide addtoschedule button and modifies onclick like CartClicked()
 //function classSessionClicked()
-   //removebutton onclick unhides add to schedule
+//removebutton onclick unhides add to schedule
 
 
 // response to addSchedule button click
@@ -407,8 +407,8 @@ function addSchedule(class_name, cart_button_class) {
 // --------!!!-------
 // removes item from cart and if selected, removed from schedule
 function removeCart(name) {
-   listof_cart.splice(listof_cart.indexOf(name),1)
-   document.getElementById("addButton"+ name).disabled = false
+   listof_cart.splice(listof_cart.indexOf(name), 1)
+   document.getElementById("addButton" + name).disabled = false
    prepareShoppingCart()
    for (var i = 0; i < listof_cart.length; i++) {
       var className = listof_cart[i]
@@ -420,12 +420,41 @@ function removeCart(name) {
 // renders the class onto the schedule list
 
 function addToSchedule(course_name) {
-   
+
 }
 
+var accessPage = null
 
-prepareSchedule()
-prepareShoppingCart()
+function prepareLoginPage() {
+   accessPage = document.getElementById("notAccessed").innerHTML
+   document.getElementById("notAccessed").innerHTML = `<section class="loginPage" style="background-image: url('building.jpg')">
+   <div class="loginPageCard">
+       <h1 style="margin-left: 10%">Welcome to new CAESAR!</h1>
+       <img src="northwestern-logo.jpeg" style="height: 50%; margin-left: 30%">
+   </div>
+   <div class="loginPageCard" id="personalInfo">
+       <h1 style="margin-left: 10%; font-size: 5vh;">Please login to access your account</h1>
+       <div class="loginPageCardInner">
+           NetID:
+           <input type="search" class="form-control innerFilterElement" aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-sm" id="netID" placeholder="Your NetID">
+       </div>
+       <div class="loginPageCardInner">
+           Password:
+           <input type="password" class="form-control innerFilterElement" aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-sm" id="password" placeholder="Password">
+       </div>
+   </div>
+</section>`
+   document.querySelector('#password').onkeyup = (ev) => loginEventListener(ev)
+}
+
+function accessGranted() {
+   document.getElementById("accessPage").innerHTML = accessPage
+   prepareSchedule()
+   prepareShoppingCart()
+   document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev)
+}
 
 function inputEventListener(ev) {
    if (ev.keyCode === 13) {
@@ -433,4 +462,29 @@ function inputEventListener(ev) {
    }
 }
 
-document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev) 
+var loginFailed = false;
+
+function loginEventListener(ev) {
+   var netID = document.getElementById("netID").value
+   var password = document.getElementById("password").value
+   if (ev.keyCode === 13) {
+      if (netID === "Section66" && password === "Section66") {
+         document.getElementById("notAccessed").id = "accessPage"
+         accessGranted()
+      }
+      else {
+         if (!loginFailed) {
+            document.getElementById("personalInfo").innerHTML += `<div class="loginPageCardInner" style="color: red"> 
+            Your NetID and Password didn't match anyone in our records
+            </div>`
+            loginFailed = true
+         }
+         document.querySelector('#password').onkeyup = (ev) => loginEventListener(ev)
+      }
+   }
+}
+
+prepareLoginPage()
+
+
+
