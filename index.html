@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/w3.css">
 
 <body>
-    <div class="container">
+    <div class="container" id="notAccessed">
         <!-- shopping cart popup -->
         <div class="modal fade" id="cartModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -113,7 +113,7 @@
                                 to</a>
                         </div>
                         <input type="text" class="form-control innerFilterElement" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm" style="width:25%" id="classNoInput">
+                            aria-describedby="inputGroup-sizing-sm" style="width:25%" id="classNoInput" disabled>
                     </div>
                     <button type="button" class="btn btn-primary innerFilters" id="submitButton"
                         onclick="submitButtonClicked()"> Submit </button>
