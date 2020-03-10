@@ -17,12 +17,14 @@ function pageButtonsPressed(selectedButton) {
 //displays the major user selected when the dropdown option is selected
 function majorSelected(major, id) {
    document.getElementById(id).innerHTML = major
-   console.log("hello", major)
    enableAcademicReq(major)
 }
 
 //displays the course filter the user selects
 function courseFilterSelected(filterName) {
+   if (filterName !== "None") {
+      document.getElementById("classNoInput").disabled = false
+   }
    document.getElementById("courseFilter").innerHTML = filterName
 }
 
@@ -159,6 +161,7 @@ function addButtonClicked(name) {
       var courseChosen = document.getElementById("ListCourseName").innerHTML
       addtoShoppingCart(name)
       document.getElementById("addButton" + name).disabled = true
+      document.getElementById("addButton" + name).innerHTML = "Added to Shopping Cart"
 
    }
 }
@@ -176,7 +179,7 @@ function addtoShoppingCart(selected) {
          break
       }
       for (var column = 1; column < 6; column++) {
-         let cart_div_id = "shoppingCart" + (row * 2 + column);
+         let cart_div_id = "shoppingCart" + row + "-" + column;
          let cart_button_class = "placeholder" + row + "-" + column
          if (document.getElementsByClassName(cart_button_class)[0].style.display !== "none") {
             continue
@@ -208,17 +211,21 @@ function loadSearchList(listof_courses) {
       document.getElementsByClassName("courseListings")[0].innerHTML += `<h2 id="noresults">No Results</h2>`;
    };
    for (course of listof_courses) {
+      var button = `<button type="button" class="btn btn-primary coursesItem" id="addButton`+ course.name + `" 
+      onclick="addButtonClicked('`+ course.name + `')" > Add to Shopping Cart 
+</button>`
+      var disabledButton = `<button type="button" class="btn btn-primary coursesItem" id="addButton`+ course.name + `" 
+      onclick="addButtonClicked('`+ course.name + `')" disabled > Added to Shopping Cart 
+</button>`
       let template = `
          <a class="list-group-item">
             <div class="coursesItem">
                <h2 id = "ListCourseName" >${course.name} </h2>
                <h5>status: ${course.status}</h5>
                <h5>pre-req: ${course.prereq}</h5>
-               <p>Description: ${course.description}</p>
-               <button type="button" class="btn btn-primary coursesItem" id="addButton`+ course.name + `" 
-                        onclick="addButtonClicked('`+ course.name + `')"> Add to Shopping Cart 
-               </button>
-            </div>
+               <p>Description: ${course.description}</p>`+ (listof_cart.includes(course.name)? disabledButton: button) + 
+               
+            `</div>
          </a>`;
 
       document.getElementsByClassName("courseListings")[0].innerHTML += template;
@@ -240,7 +247,6 @@ function prepareSchedule() {
       }
       tempHTML += `</div>`
       tempInnerHTML += tempHTML
-
       var tempHTML = `<div class="scheduleRow">`
       for (var day = 1; day < 6; day++) {
          tempHTML += `<div class="scheduleCellHalf" name="scheduleCell" id="scheduleCell` + day + `-` + (hour + 0.5) + `"> 
@@ -262,7 +268,7 @@ function prepareShoppingCart() {
    for (var row = 0; row < 2; row++) {
       var tempHTML = `<div class="scheduleRow">`
       for (var column = 1; column < 6; column++) {
-         tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + (row * 2 + column) + `"> 
+         tempHTML += `<div class="card scheduleCell" name="shoppingCart" id="shoppingCart` + row + "-" + column + `"> 
          <button class="cartButton btn btn-primary notSelectedCart placeholder` + row + `-` + column + `" data-toggle="modal" data-target="#cartModalCenter" style="font-size: 75%; display: none" onclick="this.blur();"> </div>
          </button>`
       }
@@ -301,7 +307,6 @@ function renderModal(class_name) {
    title_div.innerHTML = class_name;
    let body_div = document.getElementById("modalBody");
    let info_obj = getAllClassInfo(class_name);
-   console.log(info_obj);
    let info_status = info_obj.status;
    let info_prereq = info_obj.prereq;
    let info_times = info_obj.times;
@@ -316,6 +321,7 @@ let listof_schedule = []
 
 // Renders of class information on popup modal
 function CartClicked(class_name, cart_button_class) {
+   console.log("AYA")
    renderModal(class_name);
    // add schedule with the getClassTime outputted time
    // if class is in schedule, hide add button
@@ -334,7 +340,6 @@ function CartClicked(class_name, cart_button_class) {
 function removeSchedule(class_name) {
    listof_schedule.splice(listof_schedule.indexOf("class_name"), 1);
    let listof_session_div = document.getElementsByClassName("classSession" + class_name);
-   console.log("removeSchedule: " + listof_session_div[0].innerHTML + listof_session_div[1].innerHTML);
    if (listof_session_div != []) {
       let length = listof_session_div.length;
       let i = 0;
@@ -359,7 +364,6 @@ function ScheduleClicked(class_name, cart_button_class) {
    else {
       document.getElementById("cartAddButton").style.display = "flex";
    }
-   console.log("ScheduleClicked: " + cart_button_class);
    document.getElementById("cartRemoveButton").onclick = function () { renderSelectedCartButton(cart_button_class); removeSchedule(class_name); };
 }
 
