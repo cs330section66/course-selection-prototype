@@ -86,7 +86,10 @@ We identified several user needs. First, they need to easily navigate through th
 
 Almost all the students we observed had a painful process navigating through multiple tabs and often forgot an information on a course and had to go back and check again. Most of the participants used a helper notepad, or a piece of paper, aside to not forget all the overwhelming information coming at once. The most time-consuming part of the process was to check-out each course in a separate tab to see the requirements, weekly hours, and the description. They are not satisfied with what Caesar has to offer because it is either to layered out or slow to navigate. This is the obstacle that pushes users into the habit of working in multiple tabs, making the process more complex at some point. Either using Caesar, or using outside sources such as department websites, we realized that the users were unhappy about how the information is all over the place and not collected under one source. This confirmed our initial belief that there is an opportunity for innovation in unifying the information while making it easy to sort through.
 
-## Paper Prototype (P4)
+## 3) Paper Prototype (P4)
+
+[Link to the Paper Prototype Testing Video] (https://youtu.be/514ZeWnftEw)
+
 We tested our paper prototype with three different users. The overall feedback on the concept was very positive: they all expressed their opinions that we needed a more advanced platform for course-selection process. The initial layout of our prototype only included one area including all filters,and another area that included Shopping Cart and Weekly Schedule, which can be seen on the picture below. Users said that the concept is useful because there are currently no other way of searching for courses with such in-debth filters. They also stated that this product merges functionalities of CAESAR and Serif.nu, and adds useful advance filtering. 
 
 ![](images/prototype1.png)
