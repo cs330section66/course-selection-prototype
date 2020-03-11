@@ -123,7 +123,14 @@ Lastly, we observed that none of the users used the 'Time' filter and they said 
 
 Taking their suggestion into consideration, we included a 'Course Number' filter and got rid of the 'Time' filter for our upcoming prototypes. 
 
+## 4) High Fidelity Prototyping (P5, P6, P7)
 
+MASON!!
 
+## 5) Reflection
 
+In the restricted time we had, we managed to create a product, in which students can create potential schedules by selecting courses based on their major's academic requirement, the course number and name, as well as any major that course belongs to. They can easily see how the courses fit in their schedules and remove/add accordingly. Moreover, they can keep potential courses in their Shopping Cart for future reference. 
 
+If we had more time, the next steps would include a more in-debth user profile where we track a student's academic record and potentially list courses accordingly, i.e. not showing courses he/she already took, or eliminating the courses which have prerequisites that the student does not meet of. 
+
+We can potentially work on suggesting personalized courses for students, and create tiers in the Shopping Cart for students to list their most desired, second option, third option alternatives for a certain course. 
