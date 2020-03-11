@@ -88,7 +88,7 @@ Almost all the students we observed had a painful process navigating through mul
 
 ## 3) Paper Prototype (P4)
 
-[Link to the Paper Prototype Testing Video] (https://youtu.be/514ZeWnftEw)
+[Link to the Paper Prototype Testing Video](https://youtu.be/514ZeWnftEw)
 
 We tested our paper prototype with three different users. The overall feedback on the concept was very positive: they all expressed their opinions that we needed a more advanced platform for course-selection process. The initial layout of our prototype only included one area including all filters,and another area that included Shopping Cart and Weekly Schedule, which can be seen on the picture below. Users said that the concept is useful because there are currently no other way of searching for courses with such in-debth filters. They also stated that this product merges functionalities of CAESAR and Serif.nu, and adds useful advance filtering. 
 
