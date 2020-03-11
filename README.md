@@ -99,23 +99,28 @@ Below are the main usability problems we encountered during the paper prototype 
 __Problem 1__
 
 This layout confused most of our users mainly because they didn't understand whether they should choose their own major, or the major that the course they are searching for belongs to. It was unclear for them that 'Degree Requirement' filter is meant to filter courses according to that user's major's degree requirements. So if one wanted to use that filter, he/she must have choosed their major first. So the 'Major' filter can be used for two purposes: 
+
 - If a CS major student wants to take an Econ class, he/she can filter courses by 'Major = Econ'.
 - If a CS major student wants to take a Basic Engineering course, which is a CS major requirement, he/she can filter 'Major = CS' and use the 'Degree Requirement = Basic Engineering'. 
+
 Having two different usability options for the 'Major' filter created a huge problem because testers were unsure whether to put their own major there, or the major of the course that they wanted to search. To address this issue, we decided to change from having a single page with all filters, to two different tabs seperated as 'Select by Class' and 'Select by Major'.
 
 __Problem 2__
 
 Another usability problem that we observed was that users were reluctant to use the search sign indicated right next to the search bar, especially when they searched for courses without explicitly typing them in the search bar. So, for instance, when users searched for a CS class based on the academic requirement, using only the 'Major' and 'Degree Requirement' filters, they alway forgot to press the search sign that is next to the emtpy search bar. 
+
 We realized that having a search sign adjacent to the search bar misguided users. To fix this problem, we created a 'Submit' button at the very below of the filters page and made it big enough to be recognizable. 
 
 __Problem 3__
 
 Our initial paper prototype was designed such that if a user wanted to add a class to the shopping cart, he/she had to drag and drop it into the shopping cart. Then, there were 3 different buttons: one to add a course to the schedule, one to remove from the schedule, and one to remove from the shopping cart. Users had hard times with this system: They didn't understand that they should drag & drop a class to add it to the shopping cart. Moreover, having three buttons in the same grid area for different purposes confused them. 
+
 To fix this issue, we replaced the drag & drop functionality with 'Add to Shopping Cart' button next to each course in the list. Additionally, we put the options to remove from shopping cart, add to schedule, or remove from schedule inside a pop-up that appears only when a user clicks on the course item itself. 
 
 __Problem 4__
 
 Lastly, we observed that none of the users used the 'Time' filter and they said that it wasn't as useful and when we asked if any filters are missing, they suggested that it would be good to have a 'Course Number' filter just like what CAESAR currently has. 
+
 Taking their suggestion into consideration, we included a 'Course Number' filter and got rid of the 'Time' filter for our upcoming prototypes. 
 
 
