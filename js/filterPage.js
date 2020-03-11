@@ -153,6 +153,10 @@ function backButtonClicked() {
    var removedList = document.getElementById("courseListingsPage");
    removedList.parentNode.removeChild(removedList);
    document.getElementsByClassName("filters")[0].style.display = "flex";
+   prepareShoppingCart()
+   for (var course of listof_cart) {
+      addtoShoppingCart(course)
+   }
    document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev)
 };
 
@@ -168,10 +172,20 @@ function addButtonClicked(name) {
 
 // Stores list of class names in shopping cart
 var listof_cart = [];
+var classesAndIds = {}
 
 function addtoShoppingCart(selected) {
    if (listof_cart.indexOf(selected) === -1) {
       listof_cart.push(selected);
+   }
+   else {
+      var cart_button_class = classesAndIds[selected][1]
+      document.getElementsByClassName(cart_button_class)[0].innerHTML = selected;
+      document.getElementsByClassName(cart_button_class)[0].style.display = "flex";
+      document.getElementsByClassName(classesAndIds[selected][1])[0].onclick = function () {
+         CartClicked(selected, cart_button_class);
+      };
+      return
    }
    var done = false
    for (var row = 0; row < 2; row++) {
@@ -187,16 +201,25 @@ function addtoShoppingCart(selected) {
          else {
             document.getElementsByClassName(cart_button_class)[0].innerHTML = selected;
             document.getElementsByClassName(cart_button_class)[0].style.display = "flex";
-            document.getElementById(cart_div_id).onclick = function () { CartClicked(selected, cart_button_class); };
+            document.getElementsByClassName(cart_button_class)[0].onclick = function () {
+               CartClicked(selected, cart_button_class);
+            };
+            classesAndIds[selected] = [cart_div_id,cart_button_class]
             done = true
             break
          }
       }
    }
+   
 }
 
 ///* Loads input list of classes *///
 function loadSearchList(listof_courses) {
+   prepareShoppingCart()
+   for (var i = 0; i < listof_cart.length; i++) {
+      var className = listof_cart[i]
+      addtoShoppingCart(className)
+   }
    document.getElementsByClassName("filters")[0].style.display = "none";
    let template = `<div id="courseListingsPage">
                      <button id="backButton" 
@@ -211,10 +234,10 @@ function loadSearchList(listof_courses) {
       document.getElementsByClassName("courseListings")[0].innerHTML += `<h2 id="noresults">No Results</h2>`;
    };
    for (course of listof_courses) {
-      var button = `<button type="button" class="btn btn-primary coursesItem" id="addButton`+ course.name + `" 
+      var button = `<button type="button" class="btn btn-primary coursesItem" id="addButton` + course.name + `" 
       onclick="addButtonClicked('`+ course.name + `')" > Add to Shopping Cart 
 </button>`
-      var disabledButton = `<button type="button" class="btn btn-primary coursesItem" id="addButton`+ course.name + `" 
+      var disabledButton = `<button type="button" class="btn btn-primary coursesItem" id="addButton` + course.name + `" 
       onclick="addButtonClicked('`+ course.name + `')" disabled > Added to Shopping Cart 
 </button>`
       let template = `
@@ -223,9 +246,9 @@ function loadSearchList(listof_courses) {
                <h2 id = "ListCourseName" >${course.name} </h2>
                <h5>status: ${course.status}</h5>
                <h5>pre-req: ${course.prereq}</h5>
-               <p>Description: ${course.description}</p>`+ (listof_cart.includes(course.name)? disabledButton: button) + 
-               
-            `</div>
+               <p>Description: ${course.description}</p>` + (listof_cart.includes(course.name) ? disabledButton : button) +
+
+         `</div>
          </a>`;
 
       document.getElementsByClassName("courseListings")[0].innerHTML += template;
@@ -277,6 +300,16 @@ function prepareShoppingCart() {
    }
    tempInnerHTML += `</div>`
    shoppingCart.innerHTML = tempInnerHTML
+
+   for (var course of listof_cart) {
+      var id = classesAndIds[course][0]
+      var className = classesAndIds[course][1]
+      var div = document.getElementById(classesAndIds[course][0])
+      var button = `<div class="card scheduleCell" name="shoppingCart" id="` + id + `"> 
+      <button class="cartButton btn btn-primary ` + (listof_schedule.includes(course) ? "selectedCart" : "notSelectedCart") + ` ` + className +  `" data-toggle="modal" data-target="#cartModalCenter" style="font-size: 75%; display: none" onclick="CartClicked('${course}', '${className}')"> </div>
+      </button>`
+      div.innerHTML = button
+   }
 }
 
 
@@ -321,7 +354,7 @@ let listof_schedule = []
 
 // Renders of class information on popup modal
 function CartClicked(class_name, cart_button_class) {
-   console.log("AYA")
+   console.log(class_name,cart_button_class)
    renderModal(class_name);
    // add schedule with the getClassTime outputted time
    // if class is in schedule, hide add button
@@ -413,6 +446,7 @@ function addSchedule(class_name, cart_button_class) {
 function removeCart(name) {
    listof_cart.splice(listof_cart.indexOf(name), 1)
    document.getElementById("addButton" + name).disabled = false
+   document.getElementById("addButton" + name).innerHTML = "Add To Shopping Cart"
    prepareShoppingCart()
    for (var i = 0; i < listof_cart.length; i++) {
       var className = listof_cart[i]
