@@ -175,6 +175,7 @@ var listof_cart = [];
 var classesAndIds = {}
 
 function addtoShoppingCart(selected) {
+   document.getElementById("shoppingCartBackground").style.display = "none";
    if (listof_cart.indexOf(selected) === -1) {
       listof_cart.push(selected);
    }
@@ -335,6 +336,55 @@ function getAllClassInfo(class_name) {
    return None;
 }
 
+// converts day number to name
+function dayToName(day) {
+   var day_name = "Null"
+   switch (day) {
+      case 1:
+         day_name = "Mo";
+         break;
+      case 2:
+         day_name = "Tu"
+         break;
+      case 3:
+         day_name = "Wed";
+         break;
+      case 4:
+         day_name = "Thu";
+         break;
+      case 5:
+         day_name = "Fri";
+         break;
+   }
+   return day_name
+}
+
+// parse time storage [{day: #, start: #, end: #}, ...]
+function renderTimes(times) {
+   days = ""
+   for (session of times) {
+      day_name = dayToName(session.day)
+      days += day_name
+   }
+   var intStart = Math.floor(session.start)
+   if (intStart - session.start != 0) {
+      start = intStart + ":30"
+   }
+   else {
+      start = intStart.toString()
+   }
+
+   var intEnd = Math.floor(session.end)
+   if (intEnd - session.end != 0) {
+      end = intEnd + ":30"
+   }
+   else {
+      end = intEnd.toString()
+   }
+   document.getElementById("modalTimes").innerHTML = `<h5>Times: ${days + start + "-" + end}</h5>`;
+}
+
+//renders the popup information
 function renderModal(class_name) {
    let title_div = document.getElementById("modalTitle");
    title_div.innerHTML = class_name;
@@ -342,11 +392,12 @@ function renderModal(class_name) {
    let info_obj = getAllClassInfo(class_name);
    let info_status = info_obj.status;
    let info_prereq = info_obj.prereq;
-   let info_times = info_obj.times;
    let info_description = info_obj.description;
    document.getElementById("modalStatus").innerHTML = `<h5>Status: ${info_status}</h5>`;
    document.getElementById("modalPrereq").innerHTML = `<h5>Prereq: ${info_prereq}</h5>`;
    document.getElementById("modalDescription").innerHTML = `<h5>Description: ${info_description}</h5>`;
+   let info_times = info_obj.times;
+   renderTimes(info_times);
 }
 
 let listof_schedule = []

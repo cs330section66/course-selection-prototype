@@ -2,7 +2,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "a a b b" "a a b b" "a a b b" "a a b b" "a a c c";
+    grid-template-areas: "a a b b"
+                         "a a b b"
+                         "a a b b"
+                         "a a b b"
+                         "a a c c";
     min-height: 100vh;
     max-height: 100vh;
     padding: 20px;
@@ -66,6 +70,15 @@ section {
 .selectedCart {
     color: rgb(21,127,250);
     background: white;
+}
+
+#shoppingCartBackground {
+    z-index: 6;
+    font-family: Arial;
+    font-size: 48px;
+    color: rgba(40, 40, 40, 0.5);
+    overflow: hidden;
+    position: absolute;
 }
 
 /* end of add shopping card */
