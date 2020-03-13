@@ -55,6 +55,34 @@ section {
     flex-direction: column;
 }
 
+#profilePage {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#profileBack {
+    height: 10%;
+    width: 100%;
+}
+
+#profileBackButton {
+    height: 100%;
+    width: 100%; 
+}
+
+#profilePageInfo {
+    display: flex;
+    padding-top: 10%;
+    height: 90%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
 
 /* start of shopping cart */
 .shoppingCart {

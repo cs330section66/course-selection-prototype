@@ -506,11 +506,33 @@ function removeCart(name) {
 
 }
 
-// renders the class onto the schedule list
-
-function addToSchedule(course_name) {
-
+// renders user profile page
+function renderUserProfile(username) {
+   var profilePage = `
+      <div id="profileBack">
+         <button type="button" class="btn btn-primary notSelected" id="profileBackButton">
+            back 
+         </button>
+      </div>
+      <div id="profilePageInfo">
+         <i class="fas fa-user-circle fa-8x"></i>
+         <h1 style="font-size: 10vh;">${username}</h1>
+         <h2 style="font-size: 6vh;">Major: </h2>
+            <p style="font-size: 4vh;">${user_info[username]["major"]}</p>
+         <h2 style="font-size: 6vh;">Academic Requirements: </h2>
+            <p style="font-size: 4vh;">Null</p>
+      </div>
+   `;
+   document.getElementById("accessPage").innerHTML = profilePage;
+   document.getElementById("accessPage").id = "profilePage";
+   document.getElementById("profileBackButton").onclick = function () {profileBackClicked(username)};
 }
+
+function profileBackClicked(username) {
+   document.getElementById("profilePage").id = "accessPage";
+   accessGranted(username);
+}
+
 
 var accessPage = null
 
@@ -545,7 +567,7 @@ function signout() {
 }
 
 // stores different classes for diff users
-user_info = {"Section66":["Comp_Sci 348", "Comp_Sci 213"], "Section67":[]}
+user_info = {"Section66": {classes:["Comp_Sci 348", "Comp_Sci 213"], major: "Computer Science", requirements: {"Technical electives": 2}}, "Section67":{classes:[], major: "Computer Engineering", requirements: {"Technical electives": 3, "AI breadth": 1}}}
 
 // renders page based on user
 function accessGranted(username) {
@@ -553,11 +575,14 @@ function accessGranted(username) {
    prepareSchedule()
    prepareShoppingCart()
    document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev)
-   classes = user_info[username]
+   classes = user_info[username]["classes"]
    for (course of classes) {
       addtoShoppingCart(course);
    }
    document.getElementById("profileName").innerHTML = username
+   document.getElementById("profileButton").onclick = function () {
+         renderUserProfile(username);
+      };
 }
 
 function inputEventListener(ev) {
