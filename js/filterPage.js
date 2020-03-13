@@ -513,17 +513,24 @@ function renderUserProfile(username) {
          </button>
       </div>
       <div id="profilePageInfo">
-         <i class="fas fa-user-circle fa-8x"></i>
+         <i class="fas fa-user-circle fa-6x"></i>
          <h1 style="font-size: 10vh;">${username}</h1>
-         <h2 style="font-size: 6vh;">Major: </h2>
+         <h2 class="profilePageInfoLabels" style="font-size: 6vh;">Major: </h2>
             <p style="font-size: 4vh;">${user_info[username]["major"]}</p>
-         <h2 style="font-size: 6vh;">Academic Requirements: </h2>
-            <p style="font-size: 4vh;">Null</p>
+         <h2 class="profilePageInfoLabels" style="font-size: 6vh;">Academic Requirements: </h2>
+            <ul id="requirementselem" class="list-group" style="font-size: 4vh;">Null</ul>
       </div>
    `;
    document.getElementById("accessPage").innerHTML = profilePage;
    document.getElementById("accessPage").id = "profilePage";
    document.getElementById("profileBackButton").onclick = function () {profileBackClicked(username)};
+   var requirements_dict = user_info[username]["requirements"]
+   var tempreq = ``;
+   for (var key in requirements_dict) {
+      var value = requirements_dict[key]
+      tempreq += `<li class="list-group-item reqListItem">${key}: ${value}</li>`
+   }
+   document.getElementById("requirementselem").innerHTML = tempreq;
 }
 
 function profileBackClicked(username) {
@@ -565,7 +572,7 @@ function signout() {
 }
 
 // stores different classes for diff users
-user_info = {"Section66": {classes:["Comp_Sci 348", "Comp_Sci 213"], major: "Computer Science", requirements: {"Technical electives": 2}}, "Section67":{classes:[], major: "Computer Engineering", requirements: {"Technical electives": 3, "AI breadth": 1}}}
+user_info = {"Section66": {classes:["Comp_Sci 348", "Comp_Sci 213"], major: "Computer Science", requirements: {"Technical electives": 2, "Basic engineering": 1, "Social sciences theme": 2, "AI breadth": 1}}, "Section67":{classes:[], major: "Computer Engineering", requirements: {"Technical electives": 3, "AI breadth": 1}}}
 
 // renders page based on user
 function accessGranted(username) {
