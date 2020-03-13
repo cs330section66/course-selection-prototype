@@ -77,11 +77,23 @@ section {
 
 #profilePageInfo {
     display: flex;
-    padding-top: 10%;
+    padding-top: 5%;
+    padding-left: 20%;
     height: 90%;
     width: 100%;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    background-color: #C8C8C8;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+}
+
+.profilePageInfoLabels {
+    padding-top: 10px;
+}
+
+.reqListItem {
+    background-color: #C8C8C8;
 }
 
 /* start of shopping cart */
