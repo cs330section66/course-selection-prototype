@@ -84,7 +84,7 @@ Through our observations, We saw that they are aware of the difficulty of the pr
 
 We identified several user needs. First, they need to easily navigate through the course descriptions between different departments. On each course site, they want to see the prerequisites of each course. On a different site, they needed to see the degree requirements for their major. Opening a separate webpage for each set of information was tedious for them. Secondly, they want to easily keep track of the meeting times and prerequisites to be easily accessed while transferring between tabs. The selection of new classes came in the order of looking at degree requirement, then sorting through class prerequisites, lastly checking ctecs and timing.
 
-Almost all the students we observed had a painful process navigating through multiple tabs and often forgot an information on a course and had to go back and check again. Most of the participants used a helper notepad, or a piece of paper, aside to not forget all the overwhelming information coming at once. The most time-consuming part of the process was to check-out each course in a separate tab to see the requirements, weekly hours, and the description. They are not satisfied with what Caesar has to offer because it is either to layered out or slow to navigate. This is the obstacle that pushes users into the habit of working in multiple tabs, making the process more complex at some point. Either using Caesar, or using outside sources such as department websites, we realized that the users were unhappy about how the information is all over the place and not collected under one source. This confirmed our initial belief that there is an opportunity for innovation in unifying the information while making it easy to sort through.
+Almost all the students we observed had a painful process navigating through multiple tabs and often forgot an information on a course and had to go back and check again. Most of the participants used a helper notepad, or a piece of paper, aside to not forget all the overwhelming information coming at once. The most time-consuming part of the process was to check-out each course in a separate tab to see the requirements, weekly hours, and the description. They are not satisfied with what Caesar has to offer because it is either to layered out or slow to navigate. This is the obstacle that pushes users into the habit of working in multiple tabs, making the process more complex at some point. Either using Caesar, or using outside sources such as department websites, we realized that the users were unhappy about how the information is all over the place and not collected under one source. This confirmed our initial belief that there is an opportunity for innovation in unifying the information and allowing users to easily sort through the necessary resources on one page.
 
 ## 3) Paper Prototype (P4)
 
@@ -125,7 +125,23 @@ Taking their suggestion into consideration, we included a 'Course Number' filter
 
 ## 4) High Fidelity Prototyping (P5, P6, P7)
 
-MASON!!
+We decided to support the looking up degree requirements for majors, referencing descriptions and prerequisites, checking timing and most importantly easy cross referencing and navigation between these information.
+
+__Degree Requirements__
+
+To support looking up degree requirements for majors, we implemented a class search based on major and academic requirements, a class search based on key words, class department, and course number, and a user profile saving degree information. Since users' degree requirement is crucial to sorting through classes to take, the search by major allows users to directly use that information to look for the right classes. As seen below, computer science majors can search directly for basic engineering classes.
+
+![](images/searchbymajor)
+
+In addition, existing Caeser search was crucial as some users would like to take classes they know of. A search by keyword, department, and number was implemented similarly to Caeser to ease the transition for students, as seen below.
+
+![](images/searchbyclass)
+
+To handle flexibility and improve ease of navigation, both searches are easily switched between with tabs and located on the same side of the same page.
+
+__Course Description and Prerequisites__
+
+To support user evaluation of course descriptions and prerequisites, we integrated them into search results for the courses, popups in the shopping cart, and popups in the schedule.
 
 ## 5) Reflection
 
@@ -134,3 +150,14 @@ In the restricted time we had, we managed to create a product, in which students
 If we had more time, the next steps would include a more in-debth user profile where we track a student's academic record and potentially list courses accordingly, i.e. not showing courses he/she already took, or eliminating the courses which have prerequisites that the student does not meet of. 
 
 We can potentially work on suggesting personalized courses for students, and create tiers in the Shopping Cart for students to list their most desired, second option, third option alternatives for a certain course. 
+
+## 6) Links
+
+The team's repo:
+https://github.com/cs330section66/course-selection-prototype
+
+Working version of prototype:
+https://cs330section66.github.io/course-selection-prototype/
+
+Instructions for running the app:
+similar to P3 and stuff!!!
