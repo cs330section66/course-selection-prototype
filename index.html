@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 
 <html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<link rel="stylesheet" href="css/w3.css">
-
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/w3.css">
+    <script src="https://kit.fontawesome.com/6ee58b9b39.js" crossorigin="anonymous"></script>
+</head>
 <body>
     <div class="container" id="notAccessed">
         <!-- shopping cart popup -->
@@ -44,6 +46,25 @@
                 </div>
             </div>
         </div>
+        <section class="sidebar">
+            <div class="dropdown">
+                <button class="btn btn-info dropdown-toggle"
+                        type="button"
+                        id="profileDropdown"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    <div id="profileName">
+                        Profile Name
+                    </div>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#" onclick=signout()>Signout</a>
+                </div>
+            </div>
+        </section>
         <!-- class filters -->
         <section class="filters">
             <div class="upperDiv">
@@ -245,11 +266,15 @@
         <!-- shopping cart -->
         <section class="shoppingCart">
             <section id="shoppingCart" style="padding-left: 20px;"></section>
+            <div id="shoppingCartBackground">
+                Shopping Cart
+            </div>
         </section>
 
     </div>
 
     <script type="text/javascript" src="js/filterPage.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>

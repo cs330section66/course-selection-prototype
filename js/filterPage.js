@@ -175,6 +175,7 @@ var listof_cart = [];
 var classesAndIds = {}
 
 function addtoShoppingCart(selected) {
+   document.getElementById("shoppingCartBackground").style.display = "none";
    if (listof_cart.indexOf(selected) === -1) {
       listof_cart.push(selected);
    }
@@ -335,6 +336,55 @@ function getAllClassInfo(class_name) {
    return None;
 }
 
+// converts day number to name
+function dayToName(day) {
+   var day_name = "Null"
+   switch (day) {
+      case 1:
+         day_name = "Mo";
+         break;
+      case 2:
+         day_name = "Tu"
+         break;
+      case 3:
+         day_name = "Wed";
+         break;
+      case 4:
+         day_name = "Thu";
+         break;
+      case 5:
+         day_name = "Fri";
+         break;
+   }
+   return day_name
+}
+
+// parse time storage [{day: #, start: #, end: #}, ...]
+function renderTimes(times) {
+   days = ""
+   for (session of times) {
+      day_name = dayToName(session.day)
+      days += day_name
+   }
+   var intStart = Math.floor(session.start)
+   if (intStart - session.start != 0) {
+      start = intStart + ":30"
+   }
+   else {
+      start = intStart.toString()
+   }
+
+   var intEnd = Math.floor(session.end)
+   if (intEnd - session.end != 0) {
+      end = intEnd + ":30"
+   }
+   else {
+      end = intEnd.toString()
+   }
+   document.getElementById("modalTimes").innerHTML = `<h5>Times: ${days + start + "-" + end}</h5>`;
+}
+
+//renders the popup information
 function renderModal(class_name) {
    let title_div = document.getElementById("modalTitle");
    title_div.innerHTML = class_name;
@@ -342,11 +392,12 @@ function renderModal(class_name) {
    let info_obj = getAllClassInfo(class_name);
    let info_status = info_obj.status;
    let info_prereq = info_obj.prereq;
-   let info_times = info_obj.times;
    let info_description = info_obj.description;
    document.getElementById("modalStatus").innerHTML = `<h5>Status: ${info_status}</h5>`;
    document.getElementById("modalPrereq").innerHTML = `<h5>Prereq: ${info_prereq}</h5>`;
    document.getElementById("modalDescription").innerHTML = `<h5>Description: ${info_description}</h5>`;
+   let info_times = info_obj.times;
+   renderTimes(info_times);
 }
 
 let listof_schedule = []
@@ -487,11 +538,26 @@ function prepareLoginPage() {
    document.querySelector('#password').onkeyup = (ev) => loginEventListener(ev)
 }
 
-function accessGranted() {
+function signout() {
+   console.log("hello")
+   document.getElementById("accessPage").id = "notAccessed"
+   prepareLoginPage()
+}
+
+// stores different classes for diff users
+user_info = {"Section66":["Comp_Sci 348", "Comp_Sci 213"], "Section67":[]}
+
+// renders page based on user
+function accessGranted(username) {
    document.getElementById("accessPage").innerHTML = accessPage
    prepareSchedule()
    prepareShoppingCart()
    document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev)
+   classes = user_info[username]
+   for (course of classes) {
+      addtoShoppingCart(course);
+   }
+   document.getElementById("profileName").innerHTML = username
 }
 
 function inputEventListener(ev) {
@@ -508,7 +574,11 @@ function loginEventListener(ev) {
    if (ev.keyCode === 13) {
       if (netID === "Section66" && password === "Section66") {
          document.getElementById("notAccessed").id = "accessPage"
-         accessGranted()
+         accessGranted("Section66")
+      }
+      else if (netID === "Section67" && password === "Section67") {
+         document.getElementById("notAccessed").id = "accessPage"
+         accessGranted("Section67")
       }
       else {
          if (!loginFailed) {
