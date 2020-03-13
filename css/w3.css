@@ -2,11 +2,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "a a b b"
-                         "a a b b"
-                         "a a b b"
-                         "a a b b"
-                         "a a c c";
+    grid-template-areas: "a a b b d"
+                         "a a b b d"
+                         "a a b b d"
+                         "a a b b d"
+                         "a a c c d";
     min-height: 100vh;
     max-height: 100vh;
     padding: 20px;
@@ -41,6 +41,13 @@ section {
     max-height: 90%;
 }
 
+.sidebar {
+    grid-area: d;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
 
 .schedule {
     grid-area: b;

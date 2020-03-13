@@ -538,11 +538,26 @@ function prepareLoginPage() {
    document.querySelector('#password').onkeyup = (ev) => loginEventListener(ev)
 }
 
-function accessGranted() {
+function signout() {
+   console.log("hello")
+   document.getElementById("accessPage").id = "notAccessed"
+   prepareLoginPage()
+}
+
+// stores different classes for diff users
+user_info = {"Section66":["Comp_Sci 348", "Comp_Sci 213"], "Section67":[]}
+
+// renders page based on user
+function accessGranted(username) {
    document.getElementById("accessPage").innerHTML = accessPage
    prepareSchedule()
    prepareShoppingCart()
    document.querySelector('#searchInput').onkeyup = (ev) => inputEventListener(ev)
+   classes = user_info[username]
+   for (course of classes) {
+      addtoShoppingCart(course);
+   }
+   document.getElementById("profileName").innerHTML = username
 }
 
 function inputEventListener(ev) {
@@ -559,7 +574,11 @@ function loginEventListener(ev) {
    if (ev.keyCode === 13) {
       if (netID === "Section66" && password === "Section66") {
          document.getElementById("notAccessed").id = "accessPage"
-         accessGranted()
+         accessGranted("Section66")
+      }
+      else if (netID === "Section67" && password === "Section67") {
+         document.getElementById("notAccessed").id = "accessPage"
+         accessGranted("Section67")
       }
       else {
          if (!loginFailed) {
