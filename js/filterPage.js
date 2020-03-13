@@ -405,7 +405,6 @@ let listof_schedule = []
 
 // Renders of class information on popup modal
 function CartClicked(class_name, cart_button_class) {
-   console.log(class_name,cart_button_class)
    renderModal(class_name);
    // add schedule with the getClassTime outputted time
    // if class is in schedule, hide add button
@@ -431,10 +430,6 @@ function removeSchedule(class_name) {
          listof_session_div[0].parentNode.removeChild(listof_session_div[0]);
          i++;
       }
-      //for (var session_div of listof_session_div) {
-      //console.log(session_div.innerHTML);
-      //session_div.parentNode.removeChild(session_div);
-      //}
    }
 }
 
@@ -496,8 +491,11 @@ function addSchedule(class_name, cart_button_class) {
 // removes item from cart and if selected, removed from schedule
 function removeCart(name) {
    listof_cart.splice(listof_cart.indexOf(name), 1)
-   document.getElementById("addButton" + name).disabled = false
-   document.getElementById("addButton" + name).innerHTML = "Add To Shopping Cart"
+   try {
+      document.getElementById("addButton" + name).disabled = false
+      document.getElementById("addButton" + name).innerHTML = "Add To Shopping Cart"
+   }
+   catch (e) {}
    prepareShoppingCart()
    for (var i = 0; i < listof_cart.length; i++) {
       var className = listof_cart[i]
