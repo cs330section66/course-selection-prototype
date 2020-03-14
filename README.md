@@ -180,4 +180,11 @@ Working version of prototype:
 https://cs330section66.github.io/course-selection-prototype/
 
 Instructions for running the app:
-similar to P3 and stuff!!!
+
+App is best viewed on Chrome on Mac.
+
+Login Info: 
+
+1) Username & Password: "Section66"
+2) Username & Password: "Section67"
+
