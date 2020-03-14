@@ -188,3 +188,5 @@ Login Info:
 1) Username & Password: "Section66"
 2) Username & Password: "Section67"
 
+After entering username and password, press "Enter" whilst in Password text field.
+
