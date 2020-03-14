@@ -133,11 +133,11 @@ __Degree Requirements__
 
 To support looking up degree requirements for majors, we implemented a class search based on major and academic requirements, a class search based on key words, class department, and course number, and a user profile saving degree information. Since users' degree requirement is crucial to sorting through classes to take, the search by major allows users to directly use that information to look for the right classes. As seen below, computer science majors can search directly for basic engineering classes.
 
-![](images/searchbymajor)
+![](images/searchbymajor.png)
 
 In addition, existing Caeser search was crucial as some users would like to take classes they know of. A search by keyword, department, and number was implemented similarly to Caeser to ease the transition for students, as seen below.
 
-![](images/searchbyclass)
+![](images/searchbyclass.png)
 
 To handle flexibility and improve ease of navigation, both searches are easily switched between with tabs and located on the same side of the same page.
 
@@ -145,17 +145,23 @@ __Course Description and Prerequisites__
 
 To support user access to course descriptions and prerequisites, we integrated them into search results for the courses, popups in the shopping cart, and popups in the schedule. Courses in the shopping cart and schedule are buttons in order to allow easy cross referencing of course description and prereq in the process of narrowing down the options and making certain classes can be taken. As seen below, the popups provide a quick and easy way to view the information.
 
-![](images/popup)
+![](images/popup.png)
+
+The profile page displaying user major and degree requirements is below.
+
+![](images/profile.png)
 
 __Course Time__
 
 To enable users to plan out timing in the process of choosing classes, we integrated timing information into the shopping cart and providing a weekly calender. Serif addresses the important step of planning course times out and has been a successful tool for students. Our website integrates a calender view into the previously mentioned tools for researching classes and narrowing down options. This efficient, flexible, and simple tool helps users focus all information on one page culmulating in the weekly calender view as shown below.
 
-![](images/calender)
+![](images/calender.png)
 
 __Three Components__
 
 The three components implemented are the Interactive Data Filter, Custom Calender, User Profile. Users can filter through course name, major, number, as well as through degree requirements. The custom calender allows course to be added, removed from the shopping cart and are allocated to the correct times. The user profile includes a login page for two user Section66:Section66 and Section67:Section67 (User:Password). Shopping cart items are saved for users. User profile button to the top right allows access to profile major and degree requirements. The buttons allows also allows signout.
+
+![](images/login.png)
 
 ## 5) Reflection
 
