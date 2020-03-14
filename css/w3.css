@@ -2,7 +2,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "a a b b" "a a b b" "a a b b" "a a b b" "a a c c";
+    grid-template-areas: "a a b b d"
+                         "a a b b d"
+                         "a a b b d"
+                         "a a b b d"
+                         "a a c c d";
     min-height: 100vh;
     max-height: 100vh;
     padding: 20px;
@@ -37,6 +41,13 @@ section {
     max-height: 90%;
 }
 
+.sidebar {
+    grid-area: d;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
 
 .schedule {
     grid-area: b;
@@ -44,6 +55,46 @@ section {
     flex-direction: column;
 }
 
+#profilePage {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#profileBack {
+    height: 10%;
+    width: 100%;
+}
+
+#profileBackButton {
+    height: 100%;
+    width: 100%; 
+}
+
+#profilePageInfo {
+    display: flex;
+    padding-top: 5%;
+    padding-left: 20%;
+    height: 90%;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #C8C8C8;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+}
+
+.profilePageInfoLabels {
+    padding-top: 10px;
+}
+
+.reqListItem {
+    background-color: #C8C8C8;
+}
 
 /* start of shopping cart */
 .shoppingCart {
@@ -66,6 +117,15 @@ section {
 .selectedCart {
     color: rgb(21,127,250);
     background: white;
+}
+
+#shoppingCartBackground {
+    z-index: 6;
+    font-family: Arial;
+    font-size: 48px;
+    color: rgba(40, 40, 40, 0.5);
+    overflow: hidden;
+    position: absolute;
 }
 
 /* end of add shopping card */
@@ -209,6 +269,44 @@ section {
     display: flex;
     flex-direction: row;
 }
+
+#notAccessed {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.loginPageCard {
+    width: 60vh;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 5vh;
+    border-radius: 5%;
+    background-color: white;
+    padding-left: 1%;
+    padding-top: 10vh
+}
+
+.loginPage {
+    width: 700vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.loginPageCardInner {
+    margin-left: 2vh;
+    width: 40vh;
+    padding-top: 2vh;
+}
+
+#netID {
+    margin-top: 1vh;
+}
+
 
 @media (max-width: 1024px) {
     /* tablet layout here */
